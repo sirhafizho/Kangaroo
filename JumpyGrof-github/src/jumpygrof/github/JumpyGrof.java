@@ -7,6 +7,8 @@ public class JumpyGrof {
     /**
      * @param args the command line arguments
      */
+    
+    //TEST NIBBA
     static LinkedList<Kangaroo> Kangaroos = new LinkedList<Kangaroo>();// Kangaroos static so other class can use it
     static Map Hafiz = new Map();// Map is static so that other class can access it
 
