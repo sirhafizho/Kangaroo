@@ -57,6 +57,11 @@ public class Kangaroo implements Comparable<Kangaroo> {
     public boolean isincolony(){//to know if getPoint() is a colony or not
         return getPoint().iscolonized();
     }
+
+    @Override
+    public String toString() {
+        return "Kangaroo at point: " + pointID +" Gender: " + gender + " Food: " + food;
+    }
     
     @Override
     public int compareTo(Kangaroo o) {
