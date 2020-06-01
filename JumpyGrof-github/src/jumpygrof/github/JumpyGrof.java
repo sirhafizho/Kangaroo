@@ -70,10 +70,8 @@ public class JumpyGrof {
         }
         Hafiz.tick();
         for(int i = 0;i<JumpyGrof.Kangaroos.length();i++){
-            int tempID = JumpyGrof.Kangaroos.atindex(i).getpointID();
-            Character tempgender = JumpyGrof.Kangaroos.atindex(i).getGender();
             if(JumpyGrof.Kangaroos.atindex(i).isincolony()==false)
-            System.out.println("Kangaroo "+tempID+" "+tempgender+" "+JumpyGrof.Kangaroos.atindex(i).getfood());
+            System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
             
         }
         for (int i = 0;i<JumpyGrof.Hafiz.points.length();i++){
