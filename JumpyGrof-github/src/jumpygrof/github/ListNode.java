@@ -1,7 +1,5 @@
 package jumpygrof.github;
-/**
- * ListNode
- */
+
 public class ListNode<T> {
 
     private T data;
