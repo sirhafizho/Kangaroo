@@ -158,7 +158,7 @@ public class Kangaroo implements Comparable<Kangaroo> {
                 Points.numberofcolony++;
             }
             
-            System.out.println(choosen.toString());//ni tak perlu pun saje je letak
+            System.out.println("choosen "+ choosen.toString());//ni tak perlu pun saje je letak
         }
     }
 
