@@ -102,7 +102,7 @@ public class JumpyGrof {
         int counter = 0;
         
         for(int i = 0;i<JumpyGrof.Kangaroos.length();i++){
-            if(JumpyGrof.Kangaroos.atindex(i).isincolony()==false)
+            if(JumpyGrof.Kangaroos.atindex(i).isincolony()==true)
             counter++;   
         }
         
