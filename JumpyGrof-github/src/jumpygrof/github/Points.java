@@ -8,7 +8,7 @@ package jumpygrof.github;
 
 public class Points implements Comparable<Points>{
     static int numberofcolony = 0;
-    static int colony = 3; //colony value
+    static int colony = 0; //colony value(user input)
 
     private LinkedList<Route> route = new LinkedList<>();
     private int pointID;

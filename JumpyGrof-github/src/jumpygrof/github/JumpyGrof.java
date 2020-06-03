@@ -16,12 +16,16 @@ public class JumpyGrof {
         int f; // number of food available at the point
         int l; // maxkang of the point
         int m; // number of route connected
+        int threshold ;//size of colony
         
         //MENU INPUT POINT
         System.out.println("(THE MAP/POINTS INPUT MENU)");
         // ask the user to input the number of points
         System.out.print("Enter the number of points: ");
-        n = s.nextInt();// sini patutnya scanner(user input)
+        n = s.nextInt();
+        System.out.println("Size of a colony: ");
+        threshold = s.nextInt();
+        Points.colony = threshold;
         Hafiz = new Map(n);// set the number of points, tapi point masih belum ada
 //        System.out.println("enter information, kat sini kene baiki cara user input");
         System.out.println("Please enter information about points");
@@ -89,31 +93,29 @@ public class JumpyGrof {
         //END KANGAROO INPUT POINT
         
         Hafiz.tick();
-        for(int i = 0;i<JumpyGrof.Kangaroos.length();i++){
-            if(JumpyGrof.Kangaroos.atindex(i).isincolony()==false)
-            System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
-            
-        }
-        for (int i = 0;i<JumpyGrof.Hafiz.points.length();i++){
-            System.out.println("Food at point "+JumpyGrof.Hafiz.points.atindex(i).getpointID()+": "+JumpyGrof.Hafiz.points.atindex(i).getfood());
-            
-        }
-        
         int counter = 0;
-        
-        for(int i = 0;i<JumpyGrof.Kangaroos.length();i++){
-            if(JumpyGrof.Kangaroos.atindex(i).isincolony()==true)
-            counter++;   
+        for (int i = 0; i < JumpyGrof.Kangaroos.length(); i++) { //kira bilangan kangaroo yang ada dalam colony
+            if (JumpyGrof.Kangaroos.atindex(i).isincolony() == false) {
+                System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
+            } else {
+                counter++;
+            }
+
         }
-        
-        System.out.println("Number of colony formed: "+Points.numberofcolony);
+        for (int i = 0; i < JumpyGrof.Hafiz.points.length(); i++) {
+            System.out.println("Food at point " + JumpyGrof.Hafiz.points.atindex(i).getpointID() + ": " + JumpyGrof.Hafiz.points.atindex(i).getfood());
+
+        }
+
+        System.out.println("Number of colony formed: " + Points.numberofcolony);
         System.out.println("Number of Kangaroos that are colonized: " + counter);
-        for(int i = 0;i<JumpyGrof.Hafiz.points.length();i++){
-            if(JumpyGrof.Hafiz.points.atindex(i).iscolonized()==true){
-                System.out.println("Colony at point "+JumpyGrof.Hafiz.points.atindex(i).getpointID());
-                for(int j = 0;j<JumpyGrof.Kangaroos.length();j++){
-                    if(JumpyGrof.Kangaroos.atindex(j).getpointID()==JumpyGrof.Hafiz.points.atindex(i).getpointID())
-                    System.out.println(JumpyGrof.Kangaroos.atindex(j).toString());
+        for (int i = 0; i < JumpyGrof.Hafiz.points.length(); i++) {
+            if (JumpyGrof.Hafiz.points.atindex(i).iscolonized() == true) {
+                System.out.println("Colony at point " + JumpyGrof.Hafiz.points.atindex(i).getpointID());
+                for (int j = 0; j < JumpyGrof.Kangaroos.length(); j++) {
+                    if (JumpyGrof.Kangaroos.atindex(j).getpointID() == JumpyGrof.Hafiz.points.atindex(i).getpointID()) {
+                        System.out.println(JumpyGrof.Kangaroos.atindex(j).toString());
+                    }
                 }
             }
         }
