@@ -107,6 +107,7 @@ public class JumpyGrof {
         }
         
         System.out.println("Number of colony formed: "+Points.numberofcolony);
+        System.out.println("Number of Kangaroos that are colonized: " + counter);
         for(int i = 0;i<JumpyGrof.Hafiz.points.length();i++){
             if(JumpyGrof.Hafiz.points.atindex(i).iscolonized()==true){
                 System.out.println("Colony at point "+JumpyGrof.Hafiz.points.atindex(i).getpointID());
