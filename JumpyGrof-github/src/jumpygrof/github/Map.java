@@ -1,6 +1,11 @@
+
 package jumpygrof.github;
 
 
+/**
+ *
+ * @author hello
+ */
 public class Map{ 
     LinkedList<Points> points = new LinkedList<>(); // aku tak buat private sebab senang untuk akses
     int numberofpoints;
