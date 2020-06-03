@@ -77,7 +77,8 @@ public class JumpyGrof {
             System.out.print("Gender: ");
             s.nextLine();
             char c = s.nextLine().charAt(0);
-            Character tempgender = c;
+            char c1 = Character.toUpperCase(c);
+            Character tempgender = c1;
             System.out.print("Pouch Capacity: ");
             int temppouch = s.nextInt();
             Kangaroos.addNode(new Kangaroo(tempID, tempgender, temppouch));
@@ -97,6 +98,14 @@ public class JumpyGrof {
             System.out.println("Food at point "+JumpyGrof.Hafiz.points.atindex(i).getpointID()+": "+JumpyGrof.Hafiz.points.atindex(i).getfood());
             
         }
+        
+        int counter = 0;
+        
+        for(int i = 0;i<JumpyGrof.Kangaroos.length();i++){
+            if(JumpyGrof.Kangaroos.atindex(i).isincolony()==false)
+            counter++;   
+        }
+        
         System.out.println("Number of colony formed: "+Points.numberofcolony);
         for(int i = 0;i<JumpyGrof.Hafiz.points.length();i++){
             if(JumpyGrof.Hafiz.points.atindex(i).iscolonized()==true){
