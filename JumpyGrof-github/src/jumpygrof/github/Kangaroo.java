@@ -2,10 +2,7 @@ package jumpygrof.github;
 
 import java.util.Random;
 
-/**
- *
- * @author hello
- */
+
 public class Kangaroo implements Comparable<Kangaroo> {
     private Character gender;
     private int pouchcapacity;
