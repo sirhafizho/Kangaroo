@@ -89,6 +89,7 @@ public class JumpyGrof {
         System.out.println();
         //
         //END KANGAROO INPUT POINT
+        System.out.println("_____________________________________________________________");
         
         System.out.println("List of route taken by the Kangaroo(s)");
         Hafiz.tick();
@@ -110,10 +111,12 @@ public class JumpyGrof {
         System.out.println();
         System.out.println();
         counter = 0;
-//        for (int i = 0;i<JumpyGrof.Hafiz.points.length();i++){
-//            System.out.println("Food at point "+JumpyGrof.Hafiz.points.atindex(i).getpointID()+": "+JumpyGrof.Hafiz.points.atindex(i).getfood());
-//            
-//        }
+        
+        System.out.println("LIST OF FOOD LEFT (DEBUGGING)");
+        for (int i = 0;i<JumpyGrof.Hafiz.points.length();i++){
+            System.out.println("Food at point "+JumpyGrof.Hafiz.points.atindex(i).getpointID()+": "+JumpyGrof.Hafiz.points.atindex(i).getfood());
+        }
+        System.out.println();
         
         
         //List of Kangaroos that are able to colonized
