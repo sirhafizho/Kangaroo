@@ -104,15 +104,15 @@ public class JumpyGrof {
         int counter = 0;
         for (int i = 0; i < JumpyGrof.Kangaroos.length(); i++) { //kira bilangan kangaroo yang ada dalam colony
             if (JumpyGrof.Kangaroos.atindex(i).isincolony() == false) {
-                System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
+              //  System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
                 counter++;
             } 
         }
         for (int i = 0; i < JumpyGrof.Hafiz.points.length(); i++) {
-            System.out.println("Food at point " + JumpyGrof.Hafiz.points.atindex(i).getpointID() + ": " + JumpyGrof.Hafiz.points.atindex(i).getfood());
+         //   System.out.println("Food at point " + JumpyGrof.Hafiz.points.atindex(i).getpointID() + ": " + JumpyGrof.Hafiz.points.atindex(i).getfood());
         }
 
-        System.out.println("Number of colony formed: " + Points.numberofcolony);
+      //  System.out.println("Number of colony formed: " + Points.numberofcolony);
         System.out.println();
         System.out.println();
         //List of Kangaroos that was not able to colonized
@@ -154,6 +154,7 @@ public class JumpyGrof {
             }
         }
         //
+        System.out.println("________________________________________________________________________________________");
         
         
     }
