@@ -23,7 +23,7 @@ public class JumpyGrof {
         // ask the user to input the number of points
         System.out.print("Enter the number of points: ");
         n = s.nextInt();
-        System.out.println("SIZE OF A COLONY(THRESHOLD): ");
+        System.out.println("Size of a colony(threshold): ");
         threshold = s.nextInt();
         Points.colony = threshold;
         Hafiz = new Map(n);// set the number of points, tapi point masih belum ada
