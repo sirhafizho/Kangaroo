@@ -9,7 +9,12 @@ public class JumpyGrof {
     static Map Hafiz = new Map();// Map is static so that other class can access it
 
     public static void main(String[] args) {
-
+        GraphVisualization graph = new GraphVisualization();
+        java.util.LinkedList<String> DistinctVertex = new java.util.LinkedList<String>();//used to enter vertexes
+        java.util.LinkedList<String> SourceVertex = new java.util.LinkedList<String>();//to form directed graph
+        java.util.LinkedList<String> DestinationVertex = new java.util.LinkedList<String>();//to form directed graph
+        java.util.LinkedList<Integer> EdgeHeight = new java.util.LinkedList<Integer>();//used to enter edge weight
+        
         Scanner s = new Scanner(System.in);
         int n; // number of points
         int a; // pointID
@@ -29,6 +34,7 @@ public class JumpyGrof {
         for (int i = 0; i < n; i++) {
             System.out.println("(Point " + ( i+1 ) + ")");
             a = i+1;
+            DistinctVertex.add(Integer.toString(a));
             System.out.print("Enter the number of food available at the point : ");
             f = s.nextInt(); 
             System.out.print("Enter the maximum amount of kangaroo that could fit in point " + (i+1) + ": ");
@@ -41,7 +47,7 @@ public class JumpyGrof {
         }
         System.out.println();
         for (int i = 0; i < Hafiz.numberofpoints; i++) {
-            if(!(Hafiz.points.atindex(i).getnumroute() == 0)) {     
+            if((Hafiz.points.atindex(i).getnumroute() != 0)) {     
             System.out.println("Point ID: " + Hafiz.points.atindex(i).getpointID());
             for (int r = 0; r < Hafiz.points.atindex(i).getnumroute(); r++) {
                 int tempID;
@@ -53,7 +59,10 @@ public class JumpyGrof {
                         System.out.print("with height of: ");
                         int tempheight = s.nextInt();
                         Hafiz.points.atindex(i).addroute(new Route(Hafiz.points.atindex(t), tempheight));// tambah jalan
-
+                        
+                        SourceVertex.add(Integer.toString(Hafiz.points.atindex(i).getpointID())); 
+                        DestinationVertex.add(Integer.toString(tempID)); 
+                        EdgeHeight.add(tempheight);
                     }
 
                 }
@@ -93,7 +102,7 @@ public class JumpyGrof {
         System.out.println();
         //
         //END KANGAROO INPUT POINT
-        
+        graph.Visualize_Directed_Graph(DistinctVertex, SourceVertex, DestinationVertex, EdgeHeight);
         
         System.out.println("_____________________________________________________________");
         System.out.println("List of route taken by the Kangaroo(s)");
@@ -158,5 +167,6 @@ public class JumpyGrof {
         
         
     }
+    
 
 }
