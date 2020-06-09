@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jumpygrof.github;
 
 import java.awt.Dimension;
@@ -12,7 +7,6 @@ import java.util.LinkedList;
 import javax.swing.JFrame;
 
 import org.apache.commons.collections15.Transformer;
-
 import edu.uci.ics.jung.algorithms.layout.CircleLayout;
 import edu.uci.ics.jung.graph.DirectedSparseGraph;
 import edu.uci.ics.jung.graph.Graph;
@@ -117,12 +111,22 @@ public void Visualize_Directed_Graph(LinkedList<String> DistinctNodes, LinkedLis
         viz.addGraphMouseListener(new GraphMouseListener() {
             @Override
             public void graphClicked(Object a, MouseEvent click) {
-                if (click.getButton() == MouseEvent.BUTTON1 && click.getClickCount() == 2){//to allow double clicking on the vertex
+                if (click.getButton() == MouseEvent.BUTTON1 && click.getClickCount() == 1){//to allow double clicking on the vertex
+                    System.out.println();
+                    System.out.println();
+                    int counter = 0;
+                    
+                    for(int i = 0; i<JumpyGrof.Kangaroos.length(); i++){
+                        if(JumpyGrof.Kangaroos.atindex(i).getpointID() == Integer.parseInt(a.toString())){
+                            counter++;
+                        }           
+                    }
+                    
                     System.out.println("---------------------------------------------------------------------------------");
                     
                     System.out.println("Point: " + JumpyGrof.Hafiz.points.atindex(Integer.parseInt(a.toString())-1).getpointID());
                     System.out.println("Food: "+JumpyGrof.Hafiz.points.atindex(Integer.parseInt(a.toString())-1).getfood());
-                    System.out.println("Kangaroos at this point");
+                    System.out.println("Kangaroos at this point : " + counter);
                     for(int i = 0; i<JumpyGrof.Kangaroos.length(); i++){
                         if(JumpyGrof.Kangaroos.atindex(i).getpointID() == Integer.parseInt(a.toString())){
                             System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
