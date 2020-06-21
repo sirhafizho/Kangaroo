@@ -520,6 +520,7 @@ public class NewJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ok1MouseClicked
     public void iterate(){
+        
         if (i < Hafiz.numberofpoints) {
                             if((Hafiz.points.atindex(i).getnumroute() != 0)) {  
                                 label3.setText("Point " + Hafiz.points.atindex(i).getpointID() + " is connected to");
@@ -537,6 +538,7 @@ public class NewJFrame extends javax.swing.JFrame {
                             ok2.setEnabled(false);
                             inKangaroo.setEditable(true);
                         }
+        
     }
     private void ok2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok2MouseClicked
       if(r<Hafiz.points.atindex(i).getnumroute()){
