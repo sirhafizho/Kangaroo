@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.swing.JTextField;
 import static jumpygrof.github.JumpyGrof.Hafiz;
+import static jumpygrof.github.JumpyGrof.Kangaroos;
 
 /**
  *
@@ -22,8 +23,6 @@ public class NewJFrame extends javax.swing.JFrame {
     static int r=0;
     static int z;
     static int index2 = 1;
-    static LinkedList<Kangaroo> Kangaroos = new LinkedList<Kangaroo>();
-    static Map Hafiz = new Map();
     
     GraphVisualization graph = new GraphVisualization();
     static java.util.LinkedList<String> DistinctVertex = new java.util.LinkedList<String>();//used to enter vertexes
@@ -487,6 +486,7 @@ public class NewJFrame extends javax.swing.JFrame {
         inPaths.setEditable(true);
         ok1.setEnabled(true);
         Hafiz = new Map(x);
+        System.out.println(Hafiz.numberofpoints+"asda");
         inIDPoint.setText(index+1 + "");
     }        
     }//GEN-LAST:event_inPointsActionPerformed
@@ -640,24 +640,16 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ok3MouseClicked
 
     
-    
-    
-    
-    
     private void inThresholdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inThresholdActionPerformed
         String c = inThreshold.getText();
-    if(checkNumber(c, inThreshold) == true){
-        int threshold = Integer.parseInt(c);
-        inThreshold.setEditable(false);
-        Points.colony = threshold;
-        output();
-        System.exit(0);
-    }       
+        if (checkNumber(c, inThreshold) == true) {
+            int threshold = Integer.parseInt(c);
+            inThreshold.setEditable(false);
+            Points.colony = threshold;
+            output();
+            //System.exit(0);
+        }
     }//GEN-LAST:event_inThresholdActionPerformed
-    
-    
-    
-    
     
     
     public boolean checkNumber(String a, JTextField b){
@@ -690,13 +682,13 @@ public class NewJFrame extends javax.swing.JFrame {
         
         //
         int counter = 0;
-        for (int i = 0; i < NewJFrame.Kangaroos.length(); i++) { //kira bilangan kangaroo yang ada dalam colony
-            if (NewJFrame.Kangaroos.atindex(i).isincolony() == false) {
+        for (int i = 0; i < Kangaroos.length(); i++) { //kira bilangan kangaroo yang ada dalam colony
+            if (Kangaroos.atindex(i).isincolony() == false) {
               //  System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
                 counter++;
             } 
         }
-        for (int i = 0; i < NewJFrame.Hafiz.points.length(); i++) {
+        for (int i = 0; i < Hafiz.points.length(); i++) {
          //   System.out.println("Food at point " + JumpyGrof.Hafiz.points.atindex(i).getpointID() + ": " + JumpyGrof.Hafiz.points.atindex(i).getfood());
         }
 
@@ -706,9 +698,9 @@ public class NewJFrame extends javax.swing.JFrame {
         //List of Kangaroos that was not able to colonized
         System.out.println("List of Kangaroos that was not able to colonized");
         System.out.println("Number of Remaining Kangaroos: " + counter);
-        for(int i = 0;i<NewJFrame.Kangaroos.length();i++){
-            if(NewJFrame.Kangaroos.atindex(i).isincolony()==false)
-            System.out.println(NewJFrame.Kangaroos.atindex(i).toString());
+        for(int i = 0;i<Kangaroos.length();i++){
+            if(Kangaroos.atindex(i).isincolony()==false)
+            System.out.println(Kangaroos.atindex(i).toString());
         }
         System.out.println();
         System.out.println();
@@ -717,26 +709,26 @@ public class NewJFrame extends javax.swing.JFrame {
         
         //
         System.out.println("LIST OF FOOD LEFT (DEBUGGING)");
-        for (int i = 0;i<NewJFrame.Hafiz.points.length();i++){
-            System.out.println("Food at point "+NewJFrame.Hafiz.points.atindex(i).getpointID()+": "+NewJFrame.Hafiz.points.atindex(i).getfood());
+        for (int i = 0;i<Hafiz.points.length();i++){
+            System.out.println("Food at point "+Hafiz.points.atindex(i).getpointID()+": "+Hafiz.points.atindex(i).getfood());
         }
         System.out.println();
         //
         
         //List of Kangaroos that are able to colonized
         System.out.println("List of Kangaroos that are able to colonized");
-        for(int i = 0;i<NewJFrame.Kangaroos.length();i++){
-            if(NewJFrame.Kangaroos.atindex(i).isincolony()==true)
+        for(int i = 0;i<Kangaroos.length();i++){
+            if(Kangaroos.atindex(i).isincolony()==true)
             counter++;   
         }     
         System.out.println("Number of colony formed: "+Points.numberofcolony);
         System.out.println("Number of Kangaroos that are colonized: " + counter);
-        for (int i = 0; i < NewJFrame.Hafiz.points.length(); i++) {
-            if (NewJFrame.Hafiz.points.atindex(i).iscolonized() == true) {
-                System.out.println("Colony at point " + NewJFrame.Hafiz.points.atindex(i).getpointID());
-                for (int j = 0; j < NewJFrame.Kangaroos.length(); j++) {
-                    if (NewJFrame.Kangaroos.atindex(j).getpointID() == NewJFrame.Hafiz.points.atindex(i).getpointID()) {
-                        System.out.println(NewJFrame.Kangaroos.atindex(j).toString());
+        for (int i = 0; i < Hafiz.points.length(); i++) {
+            if (Hafiz.points.atindex(i).iscolonized() == true) {
+                System.out.println("Colony at point " + Hafiz.points.atindex(i).getpointID());
+                for (int j = 0; j <Kangaroos.length(); j++) {
+                    if (Kangaroos.atindex(j).getpointID() == Hafiz.points.atindex(i).getpointID()) {
+                        System.out.println(Kangaroos.atindex(j).toString());
                     }
                 }
             }
