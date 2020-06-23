@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.swing.JTextField;
+import static jumpygrof.github.JumpyGrof.Hafiz;
 
 /**
  *
@@ -23,6 +24,13 @@ public class NewJFrame extends javax.swing.JFrame {
     static int index2 = 1;
     static LinkedList<Kangaroo> Kangaroos = new LinkedList<Kangaroo>();
     static Map Hafiz = new Map();
+    
+    GraphVisualization graph = new GraphVisualization();
+    static java.util.LinkedList<String> DistinctVertex = new java.util.LinkedList<String>();//used to enter vertexes
+    static java.util.LinkedList<String> SourceVertex = new java.util.LinkedList<String>();//to form directed graph
+    static java.util.LinkedList<String> DestinationVertex = new java.util.LinkedList<String>();//to form directed graph
+    static java.util.LinkedList<Integer> EdgeHeight = new java.util.LinkedList<Integer>();//used to enter edge weight
+    
     /**
      * Creates new form NewJFrame
      */
@@ -491,8 +499,10 @@ public class NewJFrame extends javax.swing.JFrame {
                checkNumber(inCapacity.getText(), inCapacity)==true &&
                checkNumber(inPaths.getText(), inPaths)==true){
                 
+                
                 Hafiz.points.addNode(new Points(Integer.parseInt(inIDPoint.getText()), Integer.parseInt(inFood.getText()),
                         Integer.parseInt(inCapacity.getText()), Integer.parseInt(inPaths.getText())));
+                DistinctVertex.add(inIDPoint.getText());
                 
                 
                     index++;
@@ -519,56 +529,66 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_ok1MouseClicked
-    public void iterate(){
-        
+    public void iterate() {
+
         if (i < Hafiz.numberofpoints) {
-                            if((Hafiz.points.atindex(i).getnumroute() != 0)) {  
-                                label3.setText("Point " + Hafiz.points.atindex(i).getpointID() + " is connected to");
-                                inConnected.setEditable(true);
-                                inHeight.setEditable(true);
-                                ok2.setEnabled(true);
-                            
-                            }else {
-                                i++;
-                                iterate();
-                            }
-                        }else{
-                            inConnected.setEditable(false);
-                            inHeight.setEditable(false);
-                            ok2.setEnabled(false);
-                            inKangaroo.setEditable(true);
-                        }
-        
+            if ((Hafiz.points.atindex(i).getnumroute() != 0)) {
+
+                label3.setText("Point " + Hafiz.points.atindex(i).getpointID() + " is connected to");
+                inConnected.setEditable(true);
+                inHeight.setEditable(true);
+                ok2.setEnabled(true);
+
+            } else {
+                i++;
+                iterate();
+            }
+        } else {
+
+            inConnected.setEditable(false);
+            inHeight.setEditable(false);
+            ok2.setEnabled(false);
+            inKangaroo.setEditable(true);
+
+        }
+
     }
     private void ok2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok2MouseClicked
-      if(r<Hafiz.points.atindex(i).getnumroute()){
-        if(checkNumber(inConnected.getText(), inConnected)==true && checkNumber(inHeight.getText(), inHeight)==true){
-                int tempID = Integer.parseInt(inConnected.getText());
+        if (r < Hafiz.points.atindex(i).getnumroute()) {
+            if (checkNumber(inConnected.getText(), inConnected) == true && checkNumber(inHeight.getText(), inHeight) == true) {
+                int connectedID = Integer.parseInt(inConnected.getText());
+                int tempheight = Integer.parseInt(inHeight.getText());
                 for (int t = 0; t < Hafiz.numberofpoints; t++) {
-                    if (Hafiz.points.atindex(t).getpointID() == tempID) {
-
-                        int tempheight = Integer.parseInt(inHeight.getText());
+                    if (Hafiz.points.atindex(t).getpointID() == connectedID) { //CHECK THIS ONE AGAIN    
                         Hafiz.points.atindex(i).addroute(new Route(Hafiz.points.atindex(t), tempheight));// tambah jalan
-                        
                         inConnected.setText("");
                         inHeight.setText("");
                         r++;
-                        if(r >= Hafiz.points.atindex(i).getnumroute()){
-                            i++;
-                            iterate();
-                        }
-                    }else{
-                        inConnected.setText("");
-                        inHeight.setText("");
+                        
+                        SourceVertex.add(Integer.toString(Hafiz.points.atindex(i).getpointID())); 
+                        DestinationVertex.add(Integer.toString(connectedID)); 
+                        EdgeHeight.add(tempheight);
+                        
                     }
-
                 }
-        }else{
+            } else {
+                inConnected.setText("");
+                inHeight.setText("");
+            }
+        }
+
+        if (r >= Hafiz.points.atindex(i).getnumroute()) {
+            r = 0;
+            i++;
             inConnected.setText("");
             inHeight.setText("");
+            iterate();
         }
-      }
     }//GEN-LAST:event_ok2MouseClicked
+   
+    
+    
+    
     
     private void ok3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok3ActionPerformed
         // TODO add your handling code here:
@@ -619,6 +639,11 @@ public class NewJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ok3MouseClicked
 
+    
+    
+    
+    
+    
     private void inThresholdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inThresholdActionPerformed
         String c = inThreshold.getText();
     if(checkNumber(c, inThreshold) == true){
@@ -629,6 +654,12 @@ public class NewJFrame extends javax.swing.JFrame {
         System.exit(0);
     }       
     }//GEN-LAST:event_inThresholdActionPerformed
+    
+    
+    
+    
+    
+    
     public boolean checkNumber(String a, JTextField b){
             try{
                 int x = Integer.parseInt(a);
@@ -648,7 +679,10 @@ public class NewJFrame extends javax.swing.JFrame {
             return false;
         }
     }
-    public static void output(){
+    public void output(){
+       
+        graph.Visualize_Directed_Graph(DistinctVertex, SourceVertex, DestinationVertex, EdgeHeight);
+        
         System.out.println("_____________________________________________________________");
         System.out.println("List of route taken by the Kangaroo(s)");
         Hafiz.tick();
