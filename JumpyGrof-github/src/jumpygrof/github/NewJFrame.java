@@ -26,6 +26,7 @@ public class NewJFrame extends javax.swing.JFrame {
     static int index2 = 1;
     static int countermem = 0;
     static int integerVal = 0;
+    static int totalcap = 0;
     
     GraphVisualization graph = new GraphVisualization();
     static java.util.LinkedList<String> DistinctVertex = new java.util.LinkedList<String>();//used to enter vertexes
@@ -92,6 +93,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
 
         jLabel13.setText("jLabel13");
 
@@ -243,23 +249,22 @@ public class NewJFrame extends javax.swing.JFrame {
         panelConnectionsLayout.setHorizontalGroup(
             panelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConnectionsLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(inConnected, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
-                .addComponent(inHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
-            .addGroup(panelConnectionsLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelConnectionsLayout.createSequentialGroup()
-                        .addComponent(label3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(47, 47, 47)
+                        .addComponent(inConnected, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(106, 106, 106)
+                        .addComponent(inHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelConnectionsLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel8)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel9)
-                        .addGap(34, 34, 34))))
+                        .addContainerGap()
+                        .addGroup(panelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label3)
+                            .addGroup(panelConnectionsLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel8)
+                                .addGap(40, 40, 40)
+                                .addComponent(jLabel9)))))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         panelConnectionsLayout.setVerticalGroup(
             panelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -426,6 +431,17 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel16.setText("A Wild Life Kangaroo Simulator");
 
+        jLabel17.setText("Points                - ");
+
+        jLabel18.setText("Total Capacity   -");
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel19.setText("Menu Info");
+
+        jLabel20.setText("Total Kangaroo  -");
+
+        jLabel21.setText("Threshold          -");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -458,16 +474,27 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(ok1))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(panelConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ok2))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(nPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(inPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
                                 .addComponent(jLabel16))
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel4)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(panelConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(ok2)
+                                        .addGap(69, 69, 69)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel18)
+                                            .addComponent(jLabel17)
+                                            .addComponent(jLabel20)
+                                            .addComponent(jLabel21)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(116, 116, 116)
+                                        .addComponent(jLabel19)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -488,30 +515,42 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(ok1)))
-                .addGap(2, 2, 2)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(panelConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inKangaroo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(16, 16, 16)
-                        .addComponent(panelKangaroo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inThreshold, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
+                        .addGap(31, 31, 31)
                         .addComponent(ok2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ok3)
-                        .addGap(96, 96, 96)))
+                        .addGap(96, 96, 96))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(panelConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(inKangaroo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(16, 16, 16)
+                                .addComponent(panelKangaroo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(inThreshold, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel4))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel21)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jLabel14)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -548,6 +587,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel14.setVisible(true);
         inPoints.setText("");
     }
+    else if(Integer.parseInt(inPoints.getText()) == 0) {
+        jLabel14.setText("ERROR:YOU ENTERED '0' FOR POINTS, ENTER AGAIN");
+        jLabel14.setVisible(true);
+        inPoints.setText("");
+    }
     else if(Integer.parseInt(inPoints.getText()) < 0) {
         jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER, ENTER AGAIN");
         jLabel14.setVisible(true);
@@ -564,15 +608,13 @@ public class NewJFrame extends javax.swing.JFrame {
         inPaths.setEditable(true);
         ok1.setEnabled(true);
         Hafiz = new Map(x);
+        jLabel17.setText("Points                - " +x);
         inIDPoint.setText(index+1 + "");
     }        
     }//GEN-LAST:event_inPointsActionPerformed
     
     private void ok1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok1MouseClicked
-        
-        
-        
-          
+
         if (inFood.getText().equals("") || inCapacity.getText().equals("") || inPaths.getText().equals("")) {
            
             String fooderr = "";
@@ -627,10 +669,16 @@ public class NewJFrame extends javax.swing.JFrame {
                checkNumber(inCapacity.getText(), inCapacity)==true &&
                checkNumber(inPaths.getText(), inPaths)==true){
                 
+                
+                
                 jLabel14.setVisible(false);
                 
                 Hafiz.points.addNode(new Points(Integer.parseInt(inIDPoint.getText()), Integer.parseInt(inFood.getText()),
                         Integer.parseInt(inCapacity.getText()), Integer.parseInt(inPaths.getText())));
+                
+                totalcap += Integer.parseInt(inCapacity.getText());
+                System.out.println(totalcap);
+                
                 DistinctVertex.add(inIDPoint.getText());
                 
                 
@@ -640,6 +688,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         inFood.setEditable(false);
                         inCapacity.setEditable(false);
                         inPaths.setEditable(false);
+                        jLabel18.setText("Total Capacity   - " + totalcap);
                         iterate();
                     
                     }else{
@@ -849,7 +898,7 @@ public class NewJFrame extends javax.swing.JFrame {
             inKangaroo.setText("");
         }
         else if(Integer.parseInt(inKangaroo.getText()) > JumpyGrof.Hafiz.getmaxkangmap()){
-            jLabel14.setText("ERROR:THE AMOUNT EXCEED THE CAPACITY OF THE MAP in (KANGAROO(S)), ENTER AGAIN");
+            jLabel14.setText("ERROR:THE AMOUNT EXCEED THE CAPACITY OF THE MAP "+ JumpyGrof.Hafiz.getmaxkangmap() +", ENTER AGAIN");
             jLabel14.setVisible(true);
             inKangaroo.setText("");
         }
@@ -857,6 +906,7 @@ public class NewJFrame extends javax.swing.JFrame {
             String g = inKangaroo.getText();
             jLabel14.setVisible(false);
         z = Integer.parseInt(g);
+        jLabel20.setText("Total Kangaroo  - " + z);
         inKangaroo.setEditable(false);
         inStartPoint.setEditable(true);
         inGender.setEditable(true);
@@ -969,6 +1019,7 @@ public class NewJFrame extends javax.swing.JFrame {
             String c = inThreshold.getText();
             int threshold = Integer.parseInt(c);
             inThreshold.setEditable(false);
+            jLabel21.setText("Threshold          - " + threshold);
             Points.colony = threshold;
             output();
             //System.exit(0);
@@ -1126,7 +1177,12 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
