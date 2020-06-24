@@ -26,7 +26,6 @@ public class NewJFrame extends javax.swing.JFrame {
     static int index2 = 1;
     static int countermem = 0;
     static int integerVal = 0;
-    static int totalcap = 0;
     
     GraphVisualization graph = new GraphVisualization();
     static java.util.LinkedList<String> DistinctVertex = new java.util.LinkedList<String>();//used to enter vertexes
@@ -676,9 +675,6 @@ public class NewJFrame extends javax.swing.JFrame {
                 Hafiz.points.addNode(new Points(Integer.parseInt(inIDPoint.getText()), Integer.parseInt(inFood.getText()),
                         Integer.parseInt(inCapacity.getText()), Integer.parseInt(inPaths.getText())));
                 
-                totalcap += Integer.parseInt(inCapacity.getText());
-                System.out.println(totalcap);
-                
                 DistinctVertex.add(inIDPoint.getText());
                 
                 
@@ -688,7 +684,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         inFood.setEditable(false);
                         inCapacity.setEditable(false);
                         inPaths.setEditable(false);
-                        jLabel18.setText("Total Capacity   - " + totalcap);
+                        jLabel18.setText("Total Capacity   - " + JumpyGrof.Hafiz.getmaxkangmap());
                         iterate();
                     
                     }else{
@@ -735,9 +731,8 @@ public class NewJFrame extends javax.swing.JFrame {
     int routemem[];
     int heightmem[];
     int dupp[];
-    
-    
-    
+
+
     private void ok2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok2MouseClicked
         
         
