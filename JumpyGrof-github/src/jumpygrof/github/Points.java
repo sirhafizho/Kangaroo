@@ -61,8 +61,8 @@ public class Points implements Comparable<Points>{
 
     public int getmale(){
         int totalmale=0;
-        for(int i = 0;i<JumpyGrof.Kangaroos.length();i++)
-            if(JumpyGrof.Kangaroos.atindex(i).getGender().equals('M')&&JumpyGrof.Kangaroos.atindex(i).getpointID()==getpointID())
+        for(int i = 0;i<JumpyGrof.Hafiz.Kangaroos.length();i++)
+            if(JumpyGrof.Hafiz.Kangaroos.atindex(i).getGender().equals('M')&&JumpyGrof.Hafiz.Kangaroos.atindex(i).getpointID()==getpointID())
                 totalmale++;
         numofmale = totalmale;
         return numofmale;
@@ -70,8 +70,8 @@ public class Points implements Comparable<Points>{
     
     public int getfemale(){
         int totalfemale=0;
-        for(int i = 0;i<JumpyGrof.Kangaroos.length();i++)
-            if(JumpyGrof.Kangaroos.atindex(i).getGender().equals('F')&&JumpyGrof.Kangaroos.atindex(i).getpointID()==getpointID())
+        for(int i = 0;i<JumpyGrof.Hafiz.Kangaroos.length();i++)
+            if(JumpyGrof.Hafiz.Kangaroos.atindex(i).getGender().equals('F')&&JumpyGrof.Hafiz.Kangaroos.atindex(i).getpointID()==getpointID())
                 totalfemale++;
         numoffemale = totalfemale;
         return numoffemale;

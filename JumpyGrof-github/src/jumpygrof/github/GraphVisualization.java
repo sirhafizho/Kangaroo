@@ -116,8 +116,8 @@ public void Visualize_Directed_Graph(LinkedList<String> DistinctNodes, LinkedLis
                     System.out.println();
                     int counter = 0;
                     
-                    for(int i = 0; i<JumpyGrof.Kangaroos.length(); i++){
-                        if(JumpyGrof.Kangaroos.atindex(i).getpointID() == Integer.parseInt(a.toString())){
+                    for(int i = 0; i<JumpyGrof.Hafiz.Kangaroos.length(); i++){
+                        if(JumpyGrof.Hafiz.Kangaroos.atindex(i).getpointID() == Integer.parseInt(a.toString())){
                             counter++;
                         }           
                     }
@@ -127,9 +127,9 @@ public void Visualize_Directed_Graph(LinkedList<String> DistinctNodes, LinkedLis
                     System.out.println("Point: " + JumpyGrof.Hafiz.points.atindex(Integer.parseInt(a.toString())-1).getpointID());
                     System.out.println("Food: "+JumpyGrof.Hafiz.points.atindex(Integer.parseInt(a.toString())-1).getfood());
                     System.out.println("Kangaroos at this point : " + counter);
-                    for(int i = 0; i<JumpyGrof.Kangaroos.length(); i++){
-                        if(JumpyGrof.Kangaroos.atindex(i).getpointID() == Integer.parseInt(a.toString())){
-                            System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
+                    for(int i = 0; i<JumpyGrof.Hafiz.Kangaroos.length(); i++){
+                        if(JumpyGrof.Hafiz.Kangaroos.atindex(i).getpointID() == Integer.parseInt(a.toString())){
+                            System.out.println(JumpyGrof.Hafiz.Kangaroos.atindex(i).toString());
                         }           
                     }
                     System.out.println("---------------------------------------------------------------------------------");

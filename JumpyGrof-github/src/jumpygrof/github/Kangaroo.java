@@ -76,21 +76,20 @@ public class Kangaroo implements Comparable<Kangaroo> {
     }
 
     public void collectfood() {
-        try{
-        
-    
-        if ((this.food != this.pouchcapacity) && (getPoint().getfood() != 0)) {
-            int tempfood = this.pouchcapacity - this.food;// amount of food needed to fill the pouch
-            if (getPoint().getfood() - tempfood < 0) {//check kalau makanan at point sikit
-                this.food += getPoint().getfood();
-            } else {
-                getPoint().minusfood(tempfood);
-                this.food += tempfood;
+        try {
+
+            if ((this.food != this.pouchcapacity) && (getPoint().getfood() != 0)) {
+                int tempfood = this.pouchcapacity - this.food;// amount of food needed to fill the pouch
+                if (getPoint().getfood() - tempfood < 0) {//check kalau makanan at point sikit
+                    this.food += getPoint().getfood();
+                } else {
+                    getPoint().minusfood(tempfood);
+                    this.food += tempfood;
+                }
             }
-        }
-    }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println("Invalid");
-    }
+        }
     }
 
     public void tick() {
@@ -159,6 +158,7 @@ public class Kangaroo implements Comparable<Kangaroo> {
             this.pointID = choosen.getLink().getpointID();
             foodneeded = choosen.getWeight() + (this.food / 2); //must initialize again
             int foodeaten = 0;
+            //kangaroo makan makanan
             while (true) {
                 if (foodeaten != foodneeded) {
                     if (choosen.getLink().getfood() != 0) {
@@ -174,7 +174,8 @@ public class Kangaroo implements Comparable<Kangaroo> {
                     break;
                 }
             }
-
+            
+            //kalau new destination became colony
             if (choosen.getLink().totalKangaroo() >= Points.colony && choosen.getLink().iscolonized() == false) {
                 choosen.getLink().setcolonized(true);
                 Points.numberofcolony++;

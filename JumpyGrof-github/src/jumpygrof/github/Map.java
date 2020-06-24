@@ -7,8 +7,9 @@ package jumpygrof.github;
  * @author hello
  */
 public class Map{ 
+    LinkedList<Kangaroo> Kangaroos = new LinkedList<Kangaroo>();
     LinkedList<Points> points = new LinkedList<>(); // aku tak buat private sebab senang untuk akses
-    
+
     int numberofpoints;
     public Map(){
         
@@ -52,11 +53,13 @@ public class Map{
     }
 
     public void tick(){
-        for (int i = 0; i < JumpyGrof.Kangaroos.length(); i++) {
-            JumpyGrof.Kangaroos.atindex(i).collectfood();
+        //cari food
+        for (int i = 0; i < Kangaroos.length(); i++) {
+            Kangaroos.atindex(i).collectfood();
         }
-        for (int i = 0; i < JumpyGrof.Kangaroos.length(); i++) {
-            JumpyGrof.Kangaroos.atindex(i).tick();
+        //cari point
+        for (int i = 0; i < Kangaroos.length(); i++) {
+            Kangaroos.atindex(i).tick();
         }
         
     }

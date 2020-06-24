@@ -11,7 +11,6 @@ import java.io.PrintWriter;
 import java.util.HashSet;
 import javax.swing.JTextField;
 import static jumpygrof.github.JumpyGrof.Hafiz;
-import static jumpygrof.github.JumpyGrof.Kangaroos;
 
 /**
  *
@@ -955,7 +954,7 @@ public class NewJFrame extends javax.swing.JFrame {
                     && checkGender(inGender.getText(), inGender) == true) {
                 char c = inGender.getText().charAt(0);
                 char c1 = Character.toUpperCase(c);
-                Kangaroos.addNode(new Kangaroo(Integer.parseInt(inStartPoint.getText()), c1, Integer.parseInt(inPouch.getText())));
+                Hafiz.Kangaroos.addNode(new Kangaroo(Integer.parseInt(inStartPoint.getText()), c1, Integer.parseInt(inPouch.getText())));
 
                 inStartPoint.setText("");
                 inGender.setText("");
@@ -1033,12 +1032,12 @@ public class NewJFrame extends javax.swing.JFrame {
 
         System.out.println("_____________________________________________________________");
         System.out.println("List of route taken by the Kangaroo(s)");
-        Hafiz.tick();
+        Hafiz.tick();//start the calculation
 
         //
         int counter = 0;
-        for (int i = 0; i < Kangaroos.length(); i++) { //kira bilangan kangaroo yang ada dalam colony
-            if (Kangaroos.atindex(i).isincolony() == false) {
+        for (int i = 0; i < Hafiz.Kangaroos.length(); i++) { //kira bilangan kangaroo yang ada dalam colony
+            if (Hafiz.Kangaroos.atindex(i).isincolony() == false) {
                 //  System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
                 counter++;
             }
@@ -1053,9 +1052,9 @@ public class NewJFrame extends javax.swing.JFrame {
         //List of Kangaroos that was not able to colonized
         System.out.println("List of Kangaroos that was not able to colonized");
         System.out.println("Number of Remaining Kangaroos: " + counter);
-        for (int i = 0; i < Kangaroos.length(); i++) {
-            if (Kangaroos.atindex(i).isincolony() == false) {
-                System.out.println(Kangaroos.atindex(i).toString());
+        for (int i = 0; i < Hafiz.Kangaroos.length(); i++) {
+            if (Hafiz.Kangaroos.atindex(i).isincolony() == false) {
+                System.out.println(Hafiz.Kangaroos.atindex(i).toString());
             }
         }
         System.out.println();
@@ -1073,8 +1072,8 @@ public class NewJFrame extends javax.swing.JFrame {
 
         //List of Kangaroos that are able to colonized
         System.out.println("List of Kangaroos that are able to colonized");
-        for (int i = 0; i < Kangaroos.length(); i++) {
-            if (Kangaroos.atindex(i).isincolony() == true) {
+        for (int i = 0; i < Hafiz.Kangaroos.length(); i++) {
+            if (Hafiz.Kangaroos.atindex(i).isincolony() == true) {
                 counter++;
             }
         }
@@ -1083,9 +1082,9 @@ public class NewJFrame extends javax.swing.JFrame {
         for (int i = 0; i < Hafiz.points.length(); i++) {
             if (Hafiz.points.atindex(i).iscolonized() == true) {
                 System.out.println("Colony at point " + Hafiz.points.atindex(i).getpointID());
-                for (int j = 0; j < Kangaroos.length(); j++) {
-                    if (Kangaroos.atindex(j).getpointID() == Hafiz.points.atindex(i).getpointID()) {
-                        System.out.println(Kangaroos.atindex(j).toString());
+                for (int j = 0; j < Hafiz.Kangaroos.length(); j++) {
+                    if (Hafiz.Kangaroos.atindex(j).getpointID() == Hafiz.points.atindex(i).getpointID()) {
+                        System.out.println(Hafiz.Kangaroos.atindex(j).toString());
                     }
                 }
             }

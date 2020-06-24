@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class JumpyGrof {
 
-    static LinkedList<Kangaroo> Kangaroos = new LinkedList<Kangaroo>();// Kangaroos static so other class can use it
+    // Kangaroos static so other class can use it
     static Map Hafiz = new Map();// Map is static so that other class can access it
 
     public static void main(String[] args) {
@@ -90,7 +90,7 @@ public class JumpyGrof {
             Character tempgender = c1;
             System.out.print("Pouch Capacity: ");
             int temppouch = s.nextInt();
-            Kangaroos.addNode(new Kangaroo(tempID, tempgender, temppouch));
+            Hafiz.Kangaroos.addNode(new Kangaroo(tempID, tempgender, temppouch));
             System.out.println();
         }
         System.out.println("Size of a colony(threshold): ");
@@ -108,8 +108,8 @@ public class JumpyGrof {
 
         //
         int counter = 0;
-        for (int i = 0; i < JumpyGrof.Kangaroos.length(); i++) { //kira bilangan kangaroo yang ada dalam colony
-            if (JumpyGrof.Kangaroos.atindex(i).isincolony() == false) {
+        for (int i = 0; i < Hafiz.Kangaroos.length(); i++) { //kira bilangan kangaroo yang ada dalam colony
+            if (Hafiz.Kangaroos.atindex(i).isincolony() == false) {
                 //  System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
                 counter++;
             }
@@ -124,9 +124,9 @@ public class JumpyGrof {
         //List of Kangaroos that was not able to colonized
         System.out.println("List of Kangaroos that was not able to colonized");
         System.out.println("Number of Remaining Kangaroos: " + counter);
-        for (int i = 0; i < JumpyGrof.Kangaroos.length(); i++) {
-            if (JumpyGrof.Kangaroos.atindex(i).isincolony() == false) {
-                System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
+        for (int i = 0; i < Hafiz.Kangaroos.length(); i++) {
+            if (Hafiz.Kangaroos.atindex(i).isincolony() == false) {
+                System.out.println(Hafiz.Kangaroos.atindex(i).toString());
             }
         }
         System.out.println();
@@ -144,8 +144,8 @@ public class JumpyGrof {
 
         //List of Kangaroos that are able to colonized
         System.out.println("List of Kangaroos that are able to colonized");
-        for (int i = 0; i < JumpyGrof.Kangaroos.length(); i++) {
-            if (JumpyGrof.Kangaroos.atindex(i).isincolony() == true) {
+        for (int i = 0; i < Hafiz.Kangaroos.length(); i++) {
+            if (Hafiz.Kangaroos.atindex(i).isincolony() == true) {
                 counter++;
             }
         }
@@ -154,9 +154,9 @@ public class JumpyGrof {
         for (int i = 0; i < JumpyGrof.Hafiz.points.length(); i++) {
             if (JumpyGrof.Hafiz.points.atindex(i).iscolonized() == true) {
                 System.out.println("Colony at point " + JumpyGrof.Hafiz.points.atindex(i).getpointID());
-                for (int j = 0; j < JumpyGrof.Kangaroos.length(); j++) {
-                    if (JumpyGrof.Kangaroos.atindex(j).getpointID() == JumpyGrof.Hafiz.points.atindex(i).getpointID()) {
-                        System.out.println(JumpyGrof.Kangaroos.atindex(j).toString());
+                for (int j = 0; j < Hafiz.Kangaroos.length(); j++) {
+                    if (Hafiz.Kangaroos.atindex(j).getpointID() == JumpyGrof.Hafiz.points.atindex(i).getpointID()) {
+                        System.out.println(Hafiz.Kangaroos.atindex(j).toString());
                     }
                 }
             }
