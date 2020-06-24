@@ -8,6 +8,7 @@ package jumpygrof.github;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import javax.swing.JTextField;
 import static jumpygrof.github.JumpyGrof.Hafiz;
 import static jumpygrof.github.JumpyGrof.Kangaroos;
@@ -23,6 +24,7 @@ public class NewJFrame extends javax.swing.JFrame {
     static int r=0;
     static int z;
     static int index2 = 1;
+    static int countermem = 0;
     
     GraphVisualization graph = new GraphVisualization();
     static java.util.LinkedList<String> DistinctVertex = new java.util.LinkedList<String>();//used to enter vertexes
@@ -46,7 +48,8 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         nPoints = new javax.swing.JPanel();
@@ -83,8 +86,21 @@ public class NewJFrame extends javax.swing.JFrame {
         ok1 = new javax.swing.JButton();
         ok2 = new javax.swing.JButton();
         ok3 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
-        jLabel4.setText("jLabel4");
+        jLabel13.setText("jLabel13");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -212,38 +228,39 @@ public class NewJFrame extends javax.swing.JFrame {
         panelConnectionsLayout.setHorizontalGroup(
             panelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConnectionsLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(32, 32, 32))
+                .addGap(47, 47, 47)
+                .addComponent(inConnected, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106)
+                .addComponent(inHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
             .addGroup(panelConnectionsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(label3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelConnectionsLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(inConnected, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(inHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addGroup(panelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelConnectionsLayout.createSequentialGroup()
+                        .addComponent(label3)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelConnectionsLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel8)
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel9)
+                        .addGap(34, 34, 34))))
         );
         panelConnectionsLayout.setVerticalGroup(
             panelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConnectionsLayout.createSequentialGroup()
-                .addGap(7, 7, 7)
                 .addComponent(label3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelConnectionsLayout.createSequentialGroup()
-                        .addGroup(panelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                        .addComponent(inConnected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConnectionsLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(inHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10))
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConnectionsLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inConnected, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31))
         );
 
         NoOfKangaroo.setText("No of kangaroos");
@@ -316,8 +333,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelKangarooLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inStartPoint, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(inPouch, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(inGender, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                    .addComponent(inPouch)
+                    .addComponent(inGender))
                 .addGap(18, 18, 18))
         );
 
@@ -334,7 +351,7 @@ public class NewJFrame extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         inThreshold.setEditable(false);
@@ -373,69 +390,80 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel14.setVisible(false);
+        jLabel14.setText("Error Label");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("PLEASE ENTER WITHOUT SPACE");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 2, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(inKangaroo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(459, 459, 459))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(inKangaroo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(inThreshold, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(panelPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(ok1))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(nPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(inPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(panelKangaroo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ok3)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelPoints, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(panelConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(ok2)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(ok1)
-                        .addGap(31, 31, 31))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(245, 245, 245)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(ok2))
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(48, 48, 48)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(panelKangaroo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(ok3))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(inThreshold, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(inPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nPoints, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(panelPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(39, 39, 39)
                         .addComponent(ok1)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(2, 2, 2)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(panelConnections, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                        .addGap(27, 27, 27)
+                        .addGap(34, 34, 34)
+                        .addComponent(panelConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(inKangaroo)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -443,26 +471,28 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(panelKangaroo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inThreshold)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(48, 48, 48))
+                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inThreshold, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                        .addGap(29, 29, 29))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
+                        .addGap(62, 62, 62)
                         .addComponent(ok2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ok3)
-                        .addGap(118, 118, 118))))
+                        .addGap(96, 96, 96)))
+                .addComponent(jLabel14)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -478,7 +508,18 @@ public class NewJFrame extends javax.swing.JFrame {
     private void inPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inPointsActionPerformed
         
     String y = inPoints.getText();
-    if(checkNumber(y, inPoints) == true){
+    
+    if(inPoints.getText().equals("")) {
+        jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (POINT(S)) , ENTER AGAIN");
+        jLabel14.setVisible(true);
+        }
+    else if(checkNumber(y, inPoints) == false) {
+        jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER, ENTER AGAIN");
+        jLabel14.setVisible(true);
+        inPoints.setText("");
+    }
+    else if(checkNumber(y, inPoints) == true){
+        jLabel14.setVisible(false);
         x = Integer.parseInt(y);
         inPoints.setEditable(false);
         inFood.setEditable(true);
@@ -486,19 +527,54 @@ public class NewJFrame extends javax.swing.JFrame {
         inPaths.setEditable(true);
         ok1.setEnabled(true);
         Hafiz = new Map(x);
-        System.out.println(Hafiz.numberofpoints+"asda");
         inIDPoint.setText(index+1 + "");
     }        
     }//GEN-LAST:event_inPointsActionPerformed
     
     private void ok1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok1MouseClicked
-        if(index < x){
+        
+        
+           
+        if (inFood.getText().equals("") || inCapacity.getText().equals("") || inPaths.getText().equals("")) {
+           
+            String fooderr = "";
+            String Capacityerr = "";
+            String Patherr = "";
+
+            if (inFood.getText().equals("")) {
+                fooderr = " (FOOD) ";
+            }
+            if (inCapacity.getText().equals("")) {
+                Capacityerr = " (CAPACITY) ";
+            }
+            if (inPaths.getText().equals("")) {
+                Patherr = " (PATH CONNECTED) ";
+            }
+
+            jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN" + fooderr + Capacityerr + Patherr + ", ENTER AGAIN");
+            jLabel14.setVisible(true); 
+        }
+        else if (checkNumber(inFood.getText(), inFood) == false) {
+            jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER Value in (FOOD), ENTER AGAIN)");
+            jLabel14.setVisible(true);
+            inFood.setText("");
+        }else if (checkNumber(inCapacity.getText(), inCapacity) == false) {
+            jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER Value in (CAPACITY), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inCapacity.setText("");
+        }else if (checkNumber(inPaths.getText(), inPaths) == false) {
+            jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER Value in (PATH CONNECTED), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inPaths.setText("");
+            }
+        else if(index < x){
             
             if(checkNumber(inIDPoint.getText(), inIDPoint)==true && 
                checkNumber(inFood.getText(), inFood)==true &&
                checkNumber(inCapacity.getText(), inCapacity)==true &&
                checkNumber(inPaths.getText(), inPaths)==true){
                 
+                jLabel14.setVisible(false);
                 
                 Hafiz.points.addNode(new Points(Integer.parseInt(inIDPoint.getText()), Integer.parseInt(inFood.getText()),
                         Integer.parseInt(inCapacity.getText()), Integer.parseInt(inPaths.getText())));
@@ -553,14 +629,80 @@ public class NewJFrame extends javax.swing.JFrame {
         }
 
     }
+    
+    int routemem[];
+    int heightmem[];
+    int dupp[];
+    
+    
+    
     private void ok2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok2MouseClicked
+        
+        if(inConnected.getText().equals("") || inHeight.getText().equals("")) {
+            
+            String connectederr = "";
+            String heighterr = "";
+            
+            if(inConnected.getText().equals("")) {
+                connectederr = " (CONNECTED) ";
+            }
+            if(inHeight.getText().equals("")) {
+                heighterr = " (HEIGHT) ";
+            }
+            
+            jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN" + connectederr + heighterr + ", EENTER AGAIN");
+            jLabel14.setVisible(true);       
+        }else if(checkNumber(inConnected.getText(), inConnected) == false) {
+            jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER Value in (CONNECTED), ENTER AGAIN)");
+            jLabel14.setVisible(true);
+            inConnected.setText("");
+        }else if(checkNumber(inHeight.getText(), inHeight) == false) {
+            jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER Value in (HEIGHT), ENTER AGAIN)");
+            jLabel14.setVisible(true);
+            inHeight.setText("");
+        }else if(inConnected.getText().equals(Hafiz.points.atindex(i).getpointID())) {
+            jLabel14.setText("ERROR:YOU CANNOT DIRECT TO THE SOURCE, ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inConnected.setText("");
+        }
+        else if(checkNumber(inConnected.getText(), inConnected) == true && checkNumber(inHeight.getText(), inHeight) == true){
+        if(r == 0) {
+        routemem = new int[Hafiz.points.atindex(i).getnumroute()];
+        heightmem = new int[Hafiz.points.atindex(i).getnumroute()];
+        dupp = new int[Hafiz.points.atindex(i).getnumroute()];
+        countermem = 0;
+        }
+        
         if (r < Hafiz.points.atindex(i).getnumroute()) {
             if (checkNumber(inConnected.getText(), inConnected) == true && checkNumber(inHeight.getText(), inHeight) == true) {
+                jLabel14.setVisible(false);
+                boolean duplicate = false;
                 int connectedID = Integer.parseInt(inConnected.getText());
                 int tempheight = Integer.parseInt(inHeight.getText());
+                
+                for(int p = 0 ; p < dupp.length;p++) {
+                        if(dupp[p] == connectedID) {
+                            duplicate = true;
+                            jLabel14.setText("ERROR:WARNING A DUPLICATE ROUTE IS ENTERED,PLEASE ENTER A NEW ROUTE");
+                            jLabel14.setVisible(true);
+                            inConnected.setText("");
+                            inHeight.setText("");
+                        }
+                    }
+                
                 for (int t = 0; t < Hafiz.numberofpoints; t++) {
-                    if (Hafiz.points.atindex(t).getpointID() == connectedID) { //CHECK THIS ONE AGAIN    
-                        Hafiz.points.atindex(i).addroute(new Route(Hafiz.points.atindex(t), tempheight));// tambah jalan
+
+                    if (Hafiz.points.atindex(t).getpointID() == connectedID && duplicate == false) { //CHECK THIS ONE AGAIN    
+                        jLabel14.setVisible(false);
+                        dupp[countermem] = connectedID;
+                        routemem[countermem] = t;
+                        heightmem[countermem] = tempheight;
+                        countermem++;
+                        
+                        
+                        
+                        //Hafiz.points.atindex(i).addroute(new Route(Hafiz.points.atindex(t), tempheight));// tambah jalan
+ 
                         inConnected.setText("");
                         inHeight.setText("");
                         r++;
@@ -572,17 +714,45 @@ public class NewJFrame extends javax.swing.JFrame {
                     }
                 }
             } else {
+                jLabel14.setVisible(false);
                 inConnected.setText("");
                 inHeight.setText("");
             }
         }
+        
+        
+        
+                
+        
+        if( r == Hafiz.points.atindex(i).getnumroute()) {
+            
+            for(int y = 0;y<routemem.length;y++) {
+                System.out.println("THE ROUTE IS : " + routemem[y]);
+                System.out.println("The height is : " + heightmem[y]);
+        }
+        System.out.println();
+            
+            for(int y = 0;y<routemem.length;y++) {
+                Hafiz.points.atindex(i).addroute(new Route(Hafiz.points.atindex(routemem[y]), heightmem[y]));
+                
 
-        if (r >= Hafiz.points.atindex(i).getnumroute()) {
+                
+            }
+            r++;
+            
+        }
+        
+        
+        
+        
+
+        if (r > Hafiz.points.atindex(i).getnumroute()) { 
             r = 0;
             i++;
             inConnected.setText("");
             inHeight.setText("");
             iterate();
+        }
         }
     }//GEN-LAST:event_ok2MouseClicked
    
@@ -599,8 +769,19 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_inHeightActionPerformed
 
     private void inKangarooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inKangarooActionPerformed
+        
         String g = inKangaroo.getText();
-    if(checkNumber(g, inKangaroo) == true){
+        if(inKangaroo.getText().equals("")) {
+        jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (KANGAROO(S)) , ENTER AGAIN");
+        jLabel14.setVisible(true);
+        }
+        else if(checkNumber(g, inKangaroo) == false) {
+        jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER, ENTER AGAIN");
+        jLabel14.setVisible(true);
+        inKangaroo.setText("");
+        }
+        else if(checkNumber(g, inKangaroo) == true){
+            jLabel14.setVisible(false);
         z = Integer.parseInt(g);
         inKangaroo.setEditable(false);
         inStartPoint.setEditable(true);
@@ -612,7 +793,42 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_inKangarooActionPerformed
 
     private void ok3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok3MouseClicked
-        if(index2 <= z){
+        
+        if (inStartPoint.getText().equals("") || inGender.getText().equals("") || inPouch.getText().equals("")) {
+           
+            String startpointerr = "";
+            String gendererr = "";
+            String poucherr = "";
+
+            if (inStartPoint.getText().equals("")) {
+                startpointerr = " (START POINT) ";
+            }
+            if (inGender.getText().equals("")) {
+                gendererr = " (GENDER) ";
+            }
+            if (inPouch.getText().equals("")) {
+                poucherr = " (POUCH) ";
+            }
+
+            jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN" + startpointerr + gendererr + poucherr + ", ENTER AGAIN");
+            jLabel14.setVisible(true); 
+        }
+        else if(checkNumber(inStartPoint.getText(), inStartPoint)==false) {
+            jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER Value in (START POINT), ENTER AGAIN)");
+            jLabel14.setVisible(true);
+            inStartPoint.setText("");
+        }
+        else if(checkNumber(inPouch.getText(), inPouch)==false) {
+            jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER Value in (POUCH), ENTER AGAIN)");
+            jLabel14.setVisible(true);
+            inPouch.setText("");
+        }
+        else if(checkGender(inGender.getText(), inGender)==false) {
+            jLabel14.setText("ERROR:YOU ENTERED A NON CHARACTER Value in (GENDER), ENTER AGAIN)");
+            jLabel14.setVisible(true);
+            inGender.setText("");
+        }
+        else if(index2 <= z){
             if(checkNumber(inStartPoint.getText(), inStartPoint)==true && 
                checkNumber(inPouch.getText(), inPouch)==true &&
                checkGender(inGender.getText(), inGender)==true){
@@ -797,6 +1013,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -805,6 +1023,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
