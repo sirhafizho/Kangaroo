@@ -98,7 +98,7 @@
                               <Component id="jLabel14" min="-2" pref="598" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="inThreshold" min="-2" pref="41" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -113,8 +113,8 @@
                               </Group>
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="panelConnections" min="-2" pref="288" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="panelConnections" min="-2" pref="297" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="ok2" min="-2" max="-2" attributes="0"/>
@@ -134,7 +134,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="nPoints" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
@@ -148,7 +148,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -246,16 +246,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" pref="69" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="20" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel2" pref="77" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -431,7 +428,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="33" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -630,10 +627,9 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel5" pref="59" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel5" pref="65" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -717,12 +713,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel17">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Points                - "/>
+            <Property name="text" type="java.lang.String" value="Points                 : "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Total Capacity   -"/>
+            <Property name="text" type="java.lang.String" value="Total Capacity   :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel19">
@@ -735,12 +731,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel20">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Total Kangaroo  -"/>
+            <Property name="text" type="java.lang.String" value="Total Kangaroo  :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel21">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Threshold          -"/>
+            <Property name="text" type="java.lang.String" value="Threshold          :"/>
           </Properties>
         </Component>
       </SubComponents>

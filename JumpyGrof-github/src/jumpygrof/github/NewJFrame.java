@@ -149,13 +149,12 @@ public class NewJFrame extends javax.swing.JFrame {
         nPointsLayout.setHorizontalGroup(
             nPointsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nPointsLayout.createSequentialGroup()
-                .addGroup(nPointsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(nPointsLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(nPointsLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel22)))
+                .addGap(29, 29, 29)
+                .addComponent(jLabel22)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nPointsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
                 .addContainerGap())
         );
         nPointsLayout.setVerticalGroup(
@@ -279,7 +278,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addComponent(jLabel8)
                                 .addGap(40, 40, 40)
                                 .addComponent(jLabel9)))))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelConnectionsLayout.setVerticalGroup(
             panelConnectionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,10 +388,9 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -446,16 +444,16 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel16.setText("A Wild Life Kangaroo Simulator");
 
-        jLabel17.setText("Points                - ");
+        jLabel17.setText("Points                 : ");
 
-        jLabel18.setText("Total Capacity   -");
+        jLabel18.setText("Total Capacity   :");
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel19.setText("Menu Info");
 
-        jLabel20.setText("Total Kangaroo  -");
+        jLabel20.setText("Total Kangaroo  :");
 
-        jLabel21.setText("Threshold          -");
+        jLabel21.setText("Threshold          :");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -475,7 +473,7 @@ public class NewJFrame extends javax.swing.JFrame {
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(inThreshold, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(panelKangaroo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -487,8 +485,8 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addComponent(ok1))
                             .addComponent(jLabel4)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(panelConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(panelConnections, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(ok2)
@@ -503,7 +501,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                         .addComponent(jLabel19))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(nPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(131, 131, 131)
@@ -512,7 +510,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                         .addComponent(inPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(34, 34, 34)
                                         .addComponent(jLabel16)))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(12, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
