@@ -55,7 +55,6 @@ public class JumpyGrof {
                 tempID = s.nextInt();
                 for (int t = 0; t < Hafiz.numberofpoints; t++) {
                     if (Hafiz.points.atindex(t).getpointID() == tempID) {
-
                         System.out.print("with height of: ");
                         int tempheight = s.nextInt();
                         Hafiz.points.atindex(i).addroute(new Route(Hafiz.points.atindex(t), tempheight));// tambah jalan
@@ -72,7 +71,7 @@ public class JumpyGrof {
                 System.out.println("Point ID: " + Hafiz.points.atindex(i).getpointID() + " has no outward route");
             }
             System.out.println();
-        }
+        }     
         //END MENU INPUT POINT
         //test
         
@@ -168,5 +167,5 @@ public class JumpyGrof {
         
     }
     
-
+    
 }
