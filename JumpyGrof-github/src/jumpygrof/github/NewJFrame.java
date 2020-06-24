@@ -18,21 +18,22 @@ import static jumpygrof.github.JumpyGrof.Kangaroos;
  * @author HP
  */
 public class NewJFrame extends javax.swing.JFrame {
+
     static int x;
     static int index = 0;
-    static int i=0;
-    static int r=0;
+    static int i = 0;
+    static int r = 0;
     static int z;
     static int index2 = 1;
     static int countermem = 0;
     static int integerVal = 0;
-    
+
     GraphVisualization graph = new GraphVisualization();
     static java.util.LinkedList<String> DistinctVertex = new java.util.LinkedList<String>();//used to enter vertexes
     static java.util.LinkedList<String> SourceVertex = new java.util.LinkedList<String>();//to form directed graph
     static java.util.LinkedList<String> DestinationVertex = new java.util.LinkedList<String>();//to form directed graph
     static java.util.LinkedList<Integer> EdgeHeight = new java.util.LinkedList<Integer>();//used to enter edge weight
-    
+
     /**
      * Creates new form NewJFrame
      */
@@ -595,51 +596,47 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inPathsActionPerformed
     private void inPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inPointsActionPerformed
-        
-    if(inPoints.getText().equals("")) {
-        jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (POINT(S)) , ENTER AGAIN");
-        jLabel14.setVisible(true);
+
+        if (inPoints.getText().equals("")) {
+            jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (POINT(S)) , ENTER AGAIN");
+            jLabel14.setVisible(true);
+        } else if (checkNumber(inPoints.getText(), inPoints) == false) {
+            jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER, ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inPoints.setText("");
+        } else if (Integer.parseInt(inPoints.getText()) < 2) {
+            jLabel14.setText("ERROR:YOU ENTERED LESS THAN 2 FOR POINTS(MIN IS 20), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inPoints.setText("");
+        } else if (Integer.parseInt(inPoints.getText()) > 21) {
+            jLabel14.setText("ERROR:YOU ENTERED MORE THAN 20 FOR POINTS(MAX IS 20), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inPoints.setText("");
+        } //    else if(Integer.parseInt(inPoints.getText()) < 0) {
+        //        jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER, ENTER AGAIN");
+        //        jLabel14.setVisible(true);
+        //        inPoints.setText("");
+        //    }       
+        else if (checkNumber(inPoints.getText(), inPoints) == true) {
+            String y = inPoints.getText();
+            integerVal = Integer.parseInt(y);
+            jLabel14.setVisible(false);
+            x = Integer.parseInt(y);
+            inPoints.setEditable(false);
+            inFood.setEditable(true);
+            inCapacity.setEditable(true);
+            inPaths.setEditable(true);
+            ok1.setEnabled(true);
+            Hafiz = new Map(x);
+            jLabel17.setText("Points                - " + x);
+            inIDPoint.setText(index + 1 + "");
         }
-    else if(checkNumber(inPoints.getText(), inPoints) == false) {
-        jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER, ENTER AGAIN");
-        jLabel14.setVisible(true);
-        inPoints.setText("");
-    }
-    else if(Integer.parseInt(inPoints.getText()) < 2) {
-        jLabel14.setText("ERROR:YOU ENTERED LESS THAN 2 FOR POINTS(MIN IS 20), ENTER AGAIN");
-        jLabel14.setVisible(true);
-        inPoints.setText("");
-    }
-    else if(Integer.parseInt(inPoints.getText()) > 21) {
-        jLabel14.setText("ERROR:YOU ENTERED MORE THAN 20 FOR POINTS(MAX IS 20), ENTER AGAIN");
-        jLabel14.setVisible(true);
-        inPoints.setText("");
-    }
-//    else if(Integer.parseInt(inPoints.getText()) < 0) {
-//        jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER, ENTER AGAIN");
-//        jLabel14.setVisible(true);
-//        inPoints.setText("");
-//    }       
-    else if(checkNumber(inPoints.getText(), inPoints) == true){
-        String y = inPoints.getText();
-        integerVal = Integer.parseInt(y);
-        jLabel14.setVisible(false);
-        x = Integer.parseInt(y);
-        inPoints.setEditable(false);
-        inFood.setEditable(true);
-        inCapacity.setEditable(true);
-        inPaths.setEditable(true);
-        ok1.setEnabled(true);
-        Hafiz = new Map(x);
-        jLabel17.setText("Points                - " +x);
-        inIDPoint.setText(index+1 + "");
-    }        
     }//GEN-LAST:event_inPointsActionPerformed
-    
+
     private void ok1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok1MouseClicked
 
         if (inFood.getText().equals("") || inCapacity.getText().equals("") || inPaths.getText().equals("")) {
-           
+
             String fooderr = "";
             String Capacityerr = "";
             String Patherr = "";
@@ -680,50 +677,45 @@ public class NewJFrame extends javax.swing.JFrame {
             jLabel14.setText("ERROR:YOU ENTERED A NUMBER LESS THAN 0 in (PATH CONNECTED), ENTER AGAIN");
             jLabel14.setVisible(true);
             inPaths.setText("");
-        }  else if (Integer.parseInt(inPaths.getText()) > x-1) { // 3  0-2
-            jLabel14.setText("ERROR:YOU ENTERED A NUMBER EXCEEDING THE MAX " + (x-1) + " in (PATH CONNECTED), ENTER AGAIN");
+        } else if (Integer.parseInt(inPaths.getText()) > x - 1) { // 3  0-2
+            jLabel14.setText("ERROR:YOU ENTERED A NUMBER EXCEEDING THE MAX " + (x - 1) + " in (PATH CONNECTED), ENTER AGAIN");
             jLabel14.setVisible(true);
             inPaths.setText("");
-        } 
-        else if(index < x){
-            
-            if(checkNumber(inIDPoint.getText(), inIDPoint)==true && 
-               checkNumber(inFood.getText(), inFood)==true &&
-               checkNumber(inCapacity.getText(), inCapacity)==true &&
-               checkNumber(inPaths.getText(), inPaths)==true){
-                
-                
-                
+        } else if (index < x) {
+
+            if (checkNumber(inIDPoint.getText(), inIDPoint) == true
+                    && checkNumber(inFood.getText(), inFood) == true
+                    && checkNumber(inCapacity.getText(), inCapacity) == true
+                    && checkNumber(inPaths.getText(), inPaths) == true) {
+
                 jLabel14.setVisible(false);
-                
+
                 Hafiz.points.addNode(new Points(Integer.parseInt(inIDPoint.getText()), Integer.parseInt(inFood.getText()),
                         Integer.parseInt(inCapacity.getText()), Integer.parseInt(inPaths.getText())));
-                
+
                 DistinctVertex.add(inIDPoint.getText());
-                
-                
-                    index++;
-                    if(index>=x){
-                        ok1.setEnabled(false);
-                        inFood.setEditable(false);
-                        inCapacity.setEditable(false);
-                        inPaths.setEditable(false);
-                        jLabel18.setText("Total Capacity   - " + JumpyGrof.Hafiz.getmaxkangmap());
-                        iterate();
-                    
-                    }else{
-                        inIDPoint.setText(index+1 + "");
-                        inFood.setText("");
-                        inCapacity.setText("");
-                        inPaths.setText("");
-                    }
-                
-               
-            }else{
+
+                index++;
+                if (index >= x) {
+                    ok1.setEnabled(false);
+                    inFood.setEditable(false);
+                    inCapacity.setEditable(false);
+                    inPaths.setEditable(false);
+                    jLabel18.setText("Total Capacity   - " + JumpyGrof.Hafiz.getmaxkangmap());
+                    iterate();
+
+                } else {
+                    inIDPoint.setText(index + 1 + "");
+                    inFood.setText("");
+                    inCapacity.setText("");
+                    inPaths.setText("");
+                }
+
+            } else {
                 inFood.setText("");
                 inCapacity.setText("");
                 inPaths.setText("");
-                
+
             }
         }
     }//GEN-LAST:event_ok1MouseClicked
@@ -751,79 +743,73 @@ public class NewJFrame extends javax.swing.JFrame {
         }
 
     }
-    
+
     int routemem[];
     int heightmem[];
     int dupp[];
 
 
     private void ok2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok2MouseClicked
-        
-        
-        if(inConnected.getText().equals("") || inHeight.getText().equals("")) {
-            
+
+        if (inConnected.getText().equals("") || inHeight.getText().equals("")) {
+
             String connectederr = "";
             String heighterr = "";
-            
-            if(inConnected.getText().equals("")) {
+
+            if (inConnected.getText().equals("")) {
                 connectederr = " (CONNECTED) ";
             }
-            if(inHeight.getText().equals("")) {
+            if (inHeight.getText().equals("")) {
                 heighterr = " (HEIGHT) ";
             }
-            
+
             jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN" + connectederr + heighterr + ", EENTER AGAIN");
-            jLabel14.setVisible(true);       
-        }else if(checkNumber(inConnected.getText(), inConnected) == false) {
+            jLabel14.setVisible(true);
+        } else if (checkNumber(inConnected.getText(), inConnected) == false) {
             jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER Value in (CONNECTED), ENTER AGAIN)");
             jLabel14.setVisible(true);
             inConnected.setText("");
-        }else if(checkNumber(inHeight.getText(), inHeight) == false) {
+        } else if (checkNumber(inHeight.getText(), inHeight) == false) {
             jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER Value in (HEIGHT), ENTER AGAIN)");
             jLabel14.setVisible(true);
             inHeight.setText("");
-        }else if(inConnected.getText().equals(Hafiz.points.atindex(i).getpointID())) {
+        } else if (inConnected.getText().equals(Hafiz.points.atindex(i).getpointID())) {
             jLabel14.setText("ERROR:YOU CANNOT DIRECT TO THE SOURCE, ENTER AGAIN");
             jLabel14.setVisible(true);
             inConnected.setText("");
-        }
-        else if (Integer.parseInt(inHeight.getText()) < 0) {
+        } else if (Integer.parseInt(inHeight.getText()) < 0) {
             jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (HEIGHT), ENTER AGAIN");
             jLabel14.setVisible(true);
             inHeight.setText("");
-        }
-        else if(Integer.parseInt(inConnected.getText()) < 0){
+        } else if (Integer.parseInt(inConnected.getText()) < 0) {
             jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (CONNECTED), ENTER AGAIN");
             jLabel14.setVisible(true);
             inConnected.setText("");
-        }
-        else if(Integer.parseInt(inConnected.getText()) == Hafiz.points.atindex(i).getpointID()){
+        } else if (Integer.parseInt(inConnected.getText()) == Hafiz.points.atindex(i).getpointID()) {
             jLabel14.setText("ERROR:YOU ENTERED THE SAME NUMBER FOR THE ID in (CONNECTED), ENTER AGAIN");
             jLabel14.setVisible(true);
             inConnected.setText("");
-        }  
-        else if(Integer.parseInt(inConnected.getText()) > Hafiz.numberofpoints){
+        } else if (Integer.parseInt(inConnected.getText()) > Hafiz.numberofpoints) {
             jLabel14.setText("ERROR:YOU ENTERED AN INVALID POINT, ENTER AGAIN");
             jLabel14.setVisible(true);
             inConnected.setText("");
-        }
-        else if(checkNumber(inConnected.getText(), inConnected) == true && checkNumber(inHeight.getText(), inHeight) == true){
-        if(r == 0) {
-        routemem = new int[Hafiz.points.atindex(i).getnumroute()];
-        heightmem = new int[Hafiz.points.atindex(i).getnumroute()];
-        dupp = new int[Hafiz.points.atindex(i).getnumroute()];
-        countermem = 0;
-        }
-        
-        if (r < Hafiz.points.atindex(i).getnumroute()) {
-            if (checkNumber(inConnected.getText(), inConnected) == true && checkNumber(inHeight.getText(), inHeight) == true) {
-                jLabel14.setVisible(false);
-                boolean duplicate = false;
-                int connectedID = Integer.parseInt(inConnected.getText());
-                int tempheight = Integer.parseInt(inHeight.getText());
-                
-                for(int p = 0 ; p < dupp.length;p++) {
-                        if(dupp[p] == connectedID) {
+        } else if (checkNumber(inConnected.getText(), inConnected) == true && checkNumber(inHeight.getText(), inHeight) == true) {
+            if (r == 0) {
+                routemem = new int[Hafiz.points.atindex(i).getnumroute()];
+                heightmem = new int[Hafiz.points.atindex(i).getnumroute()];
+                dupp = new int[Hafiz.points.atindex(i).getnumroute()];
+                countermem = 0;
+            }
+
+            if (r < Hafiz.points.atindex(i).getnumroute()) {
+                if (checkNumber(inConnected.getText(), inConnected) == true && checkNumber(inHeight.getText(), inHeight) == true) {
+                    jLabel14.setVisible(false);
+                    boolean duplicate = false;
+                    int connectedID = Integer.parseInt(inConnected.getText());
+                    int tempheight = Integer.parseInt(inHeight.getText());
+
+                    for (int p = 0; p < dupp.length; p++) {
+                        if (dupp[p] == connectedID) {
                             duplicate = true;
                             jLabel14.setText("ERROR:WARNING A DUPLICATE ROUTE IS ENTERED,PLEASE ENTER A NEW ROUTE");
                             jLabel14.setVisible(true);
@@ -831,71 +817,54 @@ public class NewJFrame extends javax.swing.JFrame {
                             inHeight.setText("");
                         }
                     }
-                
-                for (int t = 0; t < Hafiz.numberofpoints; t++) {
 
-                    if (Hafiz.points.atindex(t).getpointID() == connectedID && duplicate == false) { //CHECK THIS ONE AGAIN    
-                        jLabel14.setVisible(false);
-                        dupp[countermem] = connectedID;
-                        routemem[countermem] = t;
-                        heightmem[countermem] = tempheight;
-                        countermem++;
-                        
-                        
-                        
-                        //Hafiz.points.atindex(i).addroute(new Route(Hafiz.points.atindex(t), tempheight));// tambah jalan
- 
-                        inConnected.setText("");
-                        inHeight.setText("");
-                        r++;
-                        
-                        SourceVertex.add(Integer.toString(Hafiz.points.atindex(i).getpointID())); 
-                        DestinationVertex.add(Integer.toString(connectedID)); 
-                        EdgeHeight.add(tempheight);
-                        
+                    for (int t = 0; t < Hafiz.numberofpoints; t++) {
+
+                        if (Hafiz.points.atindex(t).getpointID() == connectedID && duplicate == false) { //CHECK THIS ONE AGAIN    
+                            jLabel14.setVisible(false);
+                            dupp[countermem] = connectedID;
+                            routemem[countermem] = t;
+                            heightmem[countermem] = tempheight;
+                            countermem++;
+
+                            //Hafiz.points.atindex(i).addroute(new Route(Hafiz.points.atindex(t), tempheight));// tambah jalan
+                            inConnected.setText("");
+                            inHeight.setText("");
+                            r++;
+
+                            SourceVertex.add(Integer.toString(Hafiz.points.atindex(i).getpointID()));
+                            DestinationVertex.add(Integer.toString(connectedID));
+                            EdgeHeight.add(tempheight);
+
+                        }
                     }
+                } else {
+                    jLabel14.setVisible(false);
+                    inConnected.setText("");
+                    inHeight.setText("");
                 }
-            } else {
-                jLabel14.setVisible(false);
+            }
+
+            if (r == Hafiz.points.atindex(i).getnumroute()) {
+
+                for (int y = 0; y < routemem.length; y++) {
+                    Hafiz.points.atindex(i).addroute(new Route(Hafiz.points.atindex(routemem[y]), heightmem[y]));
+
+                }
+                r++;
+
+            }
+            if (r > Hafiz.points.atindex(i).getnumroute()) {
+                r = 0;
+                i++;
                 inConnected.setText("");
                 inHeight.setText("");
+                iterate();
             }
-        }
-        
-        
-        
-                
-        
-        if( r == Hafiz.points.atindex(i).getnumroute()) {
-            
-            for(int y = 0;y<routemem.length;y++) {
-                Hafiz.points.atindex(i).addroute(new Route(Hafiz.points.atindex(routemem[y]), heightmem[y]));
-                
-
-                
-            }
-            r++;
-            
-        }
-        
-        
-        
-        
-
-        if (r > Hafiz.points.atindex(i).getnumroute()) { 
-            r = 0;
-            i++;
-            inConnected.setText("");
-            inHeight.setText("");
-            iterate();
-        }
         }
     }//GEN-LAST:event_ok2MouseClicked
-   
-    
-    
-    
-    
+
+
     private void ok3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ok3ActionPerformed
@@ -905,57 +874,49 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_inHeightActionPerformed
 
     private void inKangarooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inKangarooActionPerformed
-        
-        
-        if(inKangaroo.getText().equals("")) {
-        jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (KANGAROO(S)) , ENTER AGAIN");
-        jLabel14.setVisible(true);
-        }
-        else if(checkNumber(inKangaroo.getText(), inKangaroo) == false) {
-        jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER IN (KANGAROO(S)), ENTER AGAIN");
-        jLabel14.setVisible(true);
-        inKangaroo.setText("");
-        }
-        else if (Integer.parseInt(inKangaroo.getText()) <= 0) {
+
+        if (inKangaroo.getText().equals("")) {
+            jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (KANGAROO(S)) , ENTER AGAIN");
+            jLabel14.setVisible(true);
+        } else if (checkNumber(inKangaroo.getText(), inKangaroo) == false) {
+            jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER IN (KANGAROO(S)), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inKangaroo.setText("");
+        } else if (Integer.parseInt(inKangaroo.getText()) <= 0) {
             jLabel14.setText("ERROR:YOU ENTERED A Number less than or equal to 0 in (KANGAROO(S)), ENTER AGAIN");
             jLabel14.setVisible(true);
             inKangaroo.setText("");
-        }
-        else if(Integer.parseInt(inKangaroo.getText()) > JumpyGrof.Hafiz.getmaxkangmap()){
-            jLabel14.setText("ERROR:THE AMOUNT EXCEED THE CAPACITY OF THE MAP "+ JumpyGrof.Hafiz.getmaxkangmap() +", ENTER AGAIN");
+        } else if (Integer.parseInt(inKangaroo.getText()) > JumpyGrof.Hafiz.getmaxkangmap()) {
+            jLabel14.setText("ERROR:THE AMOUNT EXCEED THE CAPACITY OF THE MAP " + JumpyGrof.Hafiz.getmaxkangmap() + ", ENTER AGAIN");
             jLabel14.setVisible(true);
             inKangaroo.setText("");
-        }
-        else if(checkNumber(inKangaroo.getText(), inKangaroo) == true){
+        } else if (checkNumber(inKangaroo.getText(), inKangaroo) == true) {
             String g = inKangaroo.getText();
             jLabel14.setVisible(false);
-        z = Integer.parseInt(g);
-        jLabel20.setText("Total Kangaroo  - " + z);
-        inKangaroo.setEditable(false);
-        inStartPoint.setEditable(true);
-        inGender.setEditable(true);
-        inPouch.setEditable(true);
-        ok3.setEnabled(true);
-        
-    }       
+            z = Integer.parseInt(g);
+            jLabel20.setText("Total Kangaroo  - " + z);
+            inKangaroo.setEditable(false);
+            inStartPoint.setEditable(true);
+            inGender.setEditable(true);
+            inPouch.setEditable(true);
+            ok3.setEnabled(true);
+
+        }
     }//GEN-LAST:event_inKangarooActionPerformed
 
     private void ok3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok3MouseClicked
-        
-  
-        
-        if(checkGender(inGender.getText(), inGender)==false) {
+
+        if (checkGender(inGender.getText(), inGender) == false) {
             jLabel14.setText("ERROR:YOU ENTERED NEITHER OF WHICH,F FOR FEMALE M FOR MALE Value in (GENDER), ENTER AGAIN)");
             jLabel14.setVisible(true);
             inGender.setText("");
-        }
-//        else if(!inGender.getText().equals("F") || !inGender.getText().equals("f") || !inGender.getText().equals("M") || !inGender.getText().equals("m")) {
-//            jLabel14.setText("ERROR:YOU ENTERED A NEITHER F OR M Value in (GENDER), ENTER AGAIN)");
-//            jLabel14.setVisible(true);
-//            inGender.setText("");
-//        }
+        } //        else if(!inGender.getText().equals("F") || !inGender.getText().equals("f") || !inGender.getText().equals("M") || !inGender.getText().equals("m")) {
+        //            jLabel14.setText("ERROR:YOU ENTERED A NEITHER F OR M Value in (GENDER), ENTER AGAIN)");
+        //            jLabel14.setVisible(true);
+        //            inGender.setText("");
+        //        }
         else if (inStartPoint.getText().equals("") || inGender.getText().equals("") || inPouch.getText().equals("")) {
-           
+
             String startpointerr = "";
             String gendererr = "";
             String poucherr = "";
@@ -971,48 +932,43 @@ public class NewJFrame extends javax.swing.JFrame {
             }
 
             jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN" + startpointerr + gendererr + poucherr + ", ENTER AGAIN");
-            jLabel14.setVisible(true); 
-        }
-        else if(checkNumber(inStartPoint.getText(), inStartPoint)==false) {
+            jLabel14.setVisible(true);
+        } else if (checkNumber(inStartPoint.getText(), inStartPoint) == false) {
             jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER Value in (START POINT), ENTER AGAIN)");
             jLabel14.setVisible(true);
             inStartPoint.setText("");
-        }
-        else if(checkNumber(inPouch.getText(), inPouch)==false) {
+        } else if (checkNumber(inPouch.getText(), inPouch) == false) {
             jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER Value in (POUCH), ENTER AGAIN)");
             jLabel14.setVisible(true);
             inPouch.setText("");
-        }
-                else if (Integer.parseInt(inStartPoint.getText()) < 0) {
+        } else if (Integer.parseInt(inStartPoint.getText()) < 0) {
             jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (START POINT), ENTER AGAIN");
             jLabel14.setVisible(true);
             inStartPoint.setText("");
-        }
-        else if (Integer.parseInt(inPouch.getText()) < 0) {
+        } else if (Integer.parseInt(inPouch.getText()) < 0) {
             jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (POUCH), ENTER AGAIN");
             jLabel14.setVisible(true);
             inPouch.setText("");
-        }
-        else if(index2 <= z){
-            if(checkNumber(inStartPoint.getText(), inStartPoint)==true && 
-               checkNumber(inPouch.getText(), inPouch)==true &&
-               checkGender(inGender.getText(), inGender)==true){
+        } else if (index2 <= z) {
+            if (checkNumber(inStartPoint.getText(), inStartPoint) == true
+                    && checkNumber(inPouch.getText(), inPouch) == true
+                    && checkGender(inGender.getText(), inGender) == true) {
                 char c = inGender.getText().charAt(0);
                 char c1 = Character.toUpperCase(c);
                 Kangaroos.addNode(new Kangaroo(Integer.parseInt(inStartPoint.getText()), c1, Integer.parseInt(inPouch.getText())));
-                
+
                 inStartPoint.setText("");
                 inGender.setText("");
                 inPouch.setText("");
                 index2++;
-                if(index2>z){
+                if (index2 > z) {
                     ok3.setEnabled(false);
                     inStartPoint.setEditable(false);
                     inGender.setEditable(false);
                     inPouch.setEditable(false);
                     inThreshold.setEditable(true);
                 }
-            }else{
+            } else {
                 inStartPoint.setText("");
                 inGender.setText("");
                 inPouch.setText("");
@@ -1020,31 +976,26 @@ public class NewJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ok3MouseClicked
 
-    
+
     private void inThresholdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inThresholdActionPerformed
-        
-         
-        
-        if(inThreshold.getText().equals("")) {
-        jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (THRESHOLD) , ENTER AGAIN");
-        jLabel14.setVisible(true);
-        }
-        else if(checkNumber(inThreshold.getText(), inThreshold) == false) {
-        jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER IN (THRESHOLD), ENTER AGAIN");
-        jLabel14.setVisible(true);
-        inThreshold.setText("");
-        }
-//        else if (Integer.parseInt(inThreshold.getText()) < 0) {
-//            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (THRESHOLD), ENTER AGAIN");
-//            jLabel14.setVisible(true);
-//            inThreshold.setText("");
-//        }
+
+        if (inThreshold.getText().equals("")) {
+            jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (THRESHOLD) , ENTER AGAIN");
+            jLabel14.setVisible(true);
+        } else if (checkNumber(inThreshold.getText(), inThreshold) == false) {
+            jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER IN (THRESHOLD), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inThreshold.setText("");
+        } //        else if (Integer.parseInt(inThreshold.getText()) < 0) {
+        //            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (THRESHOLD), ENTER AGAIN");
+        //            jLabel14.setVisible(true);
+        //            inThreshold.setText("");
+        //        }
         else if (Integer.parseInt(inThreshold.getText()) < 1) {
             jLabel14.setText("ERROR:YOU ENTERED A NUMBER LESS THAN 1 in (THRESHOLD), ENTER AGAIN");
             jLabel14.setVisible(true);
             inThreshold.setText("");
-        }
-        else if (checkNumber(inThreshold.getText(), inThreshold) == true) {
+        } else if (checkNumber(inThreshold.getText(), inThreshold) == true) {
             String c = inThreshold.getText();
             int threshold = Integer.parseInt(c);
             inThreshold.setEditable(false);
@@ -1054,83 +1005,85 @@ public class NewJFrame extends javax.swing.JFrame {
             //System.exit(0);
         }
     }//GEN-LAST:event_inThresholdActionPerformed
-    
-    
-    public boolean checkNumber(String a, JTextField b){
-            try{
-                int x = Integer.parseInt(a);
-            }catch(NumberFormatException e){
-                b.setText("");
-                return false;
-            }
-            return true;
+
+    public boolean checkNumber(String a, JTextField b) {
+        try {
+            int x = Integer.parseInt(a);
+        } catch (NumberFormatException e) {
+            b.setText("");
+            return false;
+        }
+        return true;
     }
-    public boolean checkGender(String a, JTextField b){
-           
+
+    public boolean checkGender(String a, JTextField b) {
+
         char x = a.charAt(0);
-        if(x == 'M' || x == 'F' || x == 'm' || x == 'f'){
+        if (x == 'M' || x == 'F' || x == 'm' || x == 'f') {
             return true;
-        }else{
+        } else {
             b.setText("");
             return false;
         }
     }
-    public void output(){
-       
+
+    public void output() {
+
         graph.Visualize_Directed_Graph(DistinctVertex, SourceVertex, DestinationVertex, EdgeHeight);
-        
+
         System.out.println("_____________________________________________________________");
         System.out.println("List of route taken by the Kangaroo(s)");
         Hafiz.tick();
-        
-        
+
         //
         int counter = 0;
         for (int i = 0; i < Kangaroos.length(); i++) { //kira bilangan kangaroo yang ada dalam colony
             if (Kangaroos.atindex(i).isincolony() == false) {
-              //  System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
+                //  System.out.println(JumpyGrof.Kangaroos.atindex(i).toString());
                 counter++;
-            } 
+            }
         }
         for (int i = 0; i < Hafiz.points.length(); i++) {
-         //   System.out.println("Food at point " + JumpyGrof.Hafiz.points.atindex(i).getpointID() + ": " + JumpyGrof.Hafiz.points.atindex(i).getfood());
+            //   System.out.println("Food at point " + JumpyGrof.Hafiz.points.atindex(i).getpointID() + ": " + JumpyGrof.Hafiz.points.atindex(i).getfood());
         }
 
-      //  System.out.println("Number of colony formed: " + Points.numberofcolony);
+        //  System.out.println("Number of colony formed: " + Points.numberofcolony);
         System.out.println();
         System.out.println();
         //List of Kangaroos that was not able to colonized
         System.out.println("List of Kangaroos that was not able to colonized");
         System.out.println("Number of Remaining Kangaroos: " + counter);
-        for(int i = 0;i<Kangaroos.length();i++){
-            if(Kangaroos.atindex(i).isincolony()==false)
-            System.out.println(Kangaroos.atindex(i).toString());
+        for (int i = 0; i < Kangaroos.length(); i++) {
+            if (Kangaroos.atindex(i).isincolony() == false) {
+                System.out.println(Kangaroos.atindex(i).toString());
+            }
         }
         System.out.println();
         System.out.println();
         counter = 0;
         //
-        
+
         //
         System.out.println("LIST OF FOOD LEFT (DEBUGGING)");
-        for (int i = 0;i<Hafiz.points.length();i++){
-            System.out.println("Food at point "+Hafiz.points.atindex(i).getpointID()+": "+Hafiz.points.atindex(i).getfood());
+        for (int i = 0; i < Hafiz.points.length(); i++) {
+            System.out.println("Food at point " + Hafiz.points.atindex(i).getpointID() + ": " + Hafiz.points.atindex(i).getfood());
         }
         System.out.println();
         //
-        
+
         //List of Kangaroos that are able to colonized
         System.out.println("List of Kangaroos that are able to colonized");
-        for(int i = 0;i<Kangaroos.length();i++){
-            if(Kangaroos.atindex(i).isincolony()==true)
-            counter++;   
-        }     
-        System.out.println("Number of colony formed: "+Points.numberofcolony);
+        for (int i = 0; i < Kangaroos.length(); i++) {
+            if (Kangaroos.atindex(i).isincolony() == true) {
+                counter++;
+            }
+        }
+        System.out.println("Number of colony formed: " + Points.numberofcolony);
         System.out.println("Number of Kangaroos that are colonized: " + counter);
         for (int i = 0; i < Hafiz.points.length(); i++) {
             if (Hafiz.points.atindex(i).iscolonized() == true) {
                 System.out.println("Colony at point " + Hafiz.points.atindex(i).getpointID());
-                for (int j = 0; j <Kangaroos.length(); j++) {
+                for (int j = 0; j < Kangaroos.length(); j++) {
                     if (Kangaroos.atindex(j).getpointID() == Hafiz.points.atindex(i).getpointID()) {
                         System.out.println(Kangaroos.atindex(j).toString());
                     }
@@ -1139,7 +1092,7 @@ public class NewJFrame extends javax.swing.JFrame {
         }
         System.out.println("________________________________________________________________________________________");
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -1180,7 +1133,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 new NewJFrame().setVisible(true);
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
