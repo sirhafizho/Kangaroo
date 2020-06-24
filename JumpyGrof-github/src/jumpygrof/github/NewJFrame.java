@@ -848,6 +848,11 @@ public class NewJFrame extends javax.swing.JFrame {
             jLabel14.setVisible(true);
             inKangaroo.setText("");
         }
+        else if(Integer.parseInt(inKangaroo.getText()) > JumpyGrof.Hafiz.getmaxkangmap()){
+            jLabel14.setText("ERROR:THE AMOUNT EXCEED THE CAPACITY OF THE MAP in (KANGAROO(S)), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inKangaroo.setText("");
+        }
         else if(checkNumber(inKangaroo.getText(), inKangaroo) == true){
             String g = inKangaroo.getText();
             jLabel14.setVisible(false);

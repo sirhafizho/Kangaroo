@@ -46,7 +46,11 @@ public class Points implements Comparable<Points>{
     public Route getRoute(int i){
         return route.atindex(i);
     }
-
+    
+    public int getmaxkang(){
+        return this.maxkang;
+    
+    }
     public boolean iscolonized(){
         return colonized;
     }
