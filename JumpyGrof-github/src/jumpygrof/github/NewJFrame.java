@@ -946,6 +946,10 @@ public class NewJFrame extends javax.swing.JFrame {
             jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (POUCH), ENTER AGAIN");
             jLabel14.setVisible(true);
             inPouch.setText("");
+        } else if (Integer.parseInt(inStartPoint.getText()) > x) {
+            jLabel14.setText("ERROR:YOU ENTERED INVALID ID in (START POINT), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inStartPoint.setText("");
         } else if (index2 <= z) {
             if (checkNumber(inStartPoint.getText(), inStartPoint) == true
                     && checkNumber(inPouch.getText(), inPouch) == true
@@ -953,11 +957,11 @@ public class NewJFrame extends javax.swing.JFrame {
                 char c = inGender.getText().charAt(0);
                 char c1 = Character.toUpperCase(c);
                 //add kangaroo
-                if (Hafiz.getPoint(Integer.parseInt(inStartPoint.getText())).isMaxkang()==true) {
+                if (Hafiz.getPoint(Integer.parseInt(inStartPoint.getText())).isMaxkang() == true) {
                     jLabel14.setText("ERROR: STARTING POINT ALREADY FULL, USE ANOTHER POINT, ENTER AGAIN");
                     jLabel14.setVisible(true);
                     inStartPoint.setText("");
-                }else {
+                } else {
                     Hafiz.Kangaroos.addNode(new Kangaroo(Integer.parseInt(inStartPoint.getText()), c1, Integer.parseInt(inPouch.getText())));
 
                     inStartPoint.setText("");
