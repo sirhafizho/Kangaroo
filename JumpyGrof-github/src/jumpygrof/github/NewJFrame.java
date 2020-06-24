@@ -25,6 +25,7 @@ public class NewJFrame extends javax.swing.JFrame {
     static int z;
     static int index2 = 1;
     static int countermem = 0;
+    static int integerVal = 0;
     
     GraphVisualization graph = new GraphVisualization();
     static java.util.LinkedList<String> DistinctVertex = new java.util.LinkedList<String>();//used to enter vertexes
@@ -80,6 +81,7 @@ public class NewJFrame extends javax.swing.JFrame {
         inStartPoint = new javax.swing.JTextField();
         inPouch = new javax.swing.JTextField();
         inGender = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         inThreshold = new javax.swing.JTextField();
@@ -298,44 +300,54 @@ public class NewJFrame extends javax.swing.JFrame {
 
         inGender.setEditable(false);
 
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel15.setText("Note: For Gender , M is for Male and F is for Female");
+
         javax.swing.GroupLayout panelKangarooLayout = new javax.swing.GroupLayout(panelKangaroo);
         panelKangaroo.setLayout(panelKangarooLayout);
         panelKangarooLayout.setHorizontalGroup(
             panelKangarooLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelKangarooLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(panelKangarooLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelKangarooLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(inStartPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(inGender, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelKangarooLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(55, 55, 55)
-                        .addComponent(jLabel11)))
-                .addGap(51, 51, 51)
                 .addGroup(panelKangarooLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelKangarooLayout.createSequentialGroup()
+                        .addGroup(panelKangarooLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelKangarooLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(55, 55, 55)
+                                .addComponent(jLabel11))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelKangarooLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(inStartPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(inGender, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(51, 51, 51)
+                        .addGroup(panelKangarooLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelKangarooLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(inPouch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel12)))
+                    .addGroup(panelKangarooLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(inPouch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel12))
+                        .addComponent(jLabel15)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelKangarooLayout.setVerticalGroup(
             panelKangarooLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelKangarooLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addGroup(panelKangarooLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelKangarooLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inStartPoint, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(inStartPoint)
                     .addComponent(inPouch)
                     .addComponent(inGender))
-                .addGap(18, 18, 18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel15)
+                .addGap(6, 6, 6))
         );
 
         jLabel5.setText("Threshold ");
@@ -507,9 +519,17 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_inPathsActionPerformed
     private void inPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inPointsActionPerformed
         
+        
     String y = inPoints.getText();
     
-    if(inPoints.getText().equals("")) {
+    integerVal = Integer.parseInt(y);
+    
+    if(integerVal < 0) {
+        jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER, ENTER AGAIN");
+        jLabel14.setVisible(true);
+        inPoints.setText("");
+    }
+    else if(inPoints.getText().equals("")) {
         jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (POINT(S)) , ENTER AGAIN");
         jLabel14.setVisible(true);
         }
@@ -534,8 +554,23 @@ public class NewJFrame extends javax.swing.JFrame {
     private void ok1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok1MouseClicked
         
         
-           
-        if (inFood.getText().equals("") || inCapacity.getText().equals("") || inPaths.getText().equals("")) {
+        
+        if (Integer.parseInt(inFood.getText()) < 0) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (F00D), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inFood.setText("");
+        }
+        else if(Integer.parseInt(inCapacity.getText()) < 0){
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (CAPACITY), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inCapacity.setText("");
+        }
+        else if(Integer.parseInt(inPaths.getText()) < 0){
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (PATH CONNECTED), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inPaths.setText("");
+        }     
+        else if (inFood.getText().equals("") || inCapacity.getText().equals("") || inPaths.getText().equals("")) {
            
             String fooderr = "";
             String Capacityerr = "";
@@ -638,7 +673,17 @@ public class NewJFrame extends javax.swing.JFrame {
     
     private void ok2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok2MouseClicked
         
-        if(inConnected.getText().equals("") || inHeight.getText().equals("")) {
+        if (Integer.parseInt(inHeight.getText()) < 0) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (HEIGHT), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inHeight.setText("");
+        }
+        else if(Integer.parseInt(inConnected.getText()) < 0){
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (CONNECTED), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inConnected.setText("");
+        }
+        else if(inConnected.getText().equals("") || inHeight.getText().equals("")) {
             
             String connectederr = "";
             String heighterr = "";
@@ -771,7 +816,12 @@ public class NewJFrame extends javax.swing.JFrame {
     private void inKangarooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inKangarooActionPerformed
         
         String g = inKangaroo.getText();
-        if(inKangaroo.getText().equals("")) {
+        if (Integer.parseInt(inKangaroo.getText()) < 0) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (KANGAROO(S)), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inKangaroo.setText("");
+        }
+        else if(inKangaroo.getText().equals("")) {
         jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (KANGAROO(S)) , ENTER AGAIN");
         jLabel14.setVisible(true);
         }
@@ -794,7 +844,28 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void ok3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok3MouseClicked
         
-        if (inStartPoint.getText().equals("") || inGender.getText().equals("") || inPouch.getText().equals("")) {
+  
+        if (Integer.parseInt(inStartPoint.getText()) < 0) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (START POINT), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inStartPoint.setText("");
+        }
+        else if (Integer.parseInt(inPouch.getText()) < 0) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (POUCH), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inPouch.setText("");
+        }
+        else if(checkGender(inGender.getText(), inGender)==false) {
+            jLabel14.setText("ERROR:YOU ENTERED A NON CHARACTER Value in (GENDER), ENTER AGAIN)");
+            jLabel14.setVisible(true);
+            inGender.setText("");
+        }
+        else if(!inGender.getText().equals("F") || !inGender.getText().equals("f") || !inGender.getText().equals("M") || !inGender.getText().equals("m")) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEITHER F OR M Value in (GENDER), ENTER AGAIN)");
+            jLabel14.setVisible(true);
+            inGender.setText("");
+        }
+        else if (inStartPoint.getText().equals("") || inGender.getText().equals("") || inPouch.getText().equals("")) {
            
             String startpointerr = "";
             String gendererr = "";
@@ -822,11 +893,6 @@ public class NewJFrame extends javax.swing.JFrame {
             jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER Value in (POUCH), ENTER AGAIN)");
             jLabel14.setVisible(true);
             inPouch.setText("");
-        }
-        else if(checkGender(inGender.getText(), inGender)==false) {
-            jLabel14.setText("ERROR:YOU ENTERED A NON CHARACTER Value in (GENDER), ENTER AGAIN)");
-            jLabel14.setVisible(true);
-            inGender.setText("");
         }
         else if(index2 <= z){
             if(checkNumber(inStartPoint.getText(), inStartPoint)==true && 
@@ -857,8 +923,23 @@ public class NewJFrame extends javax.swing.JFrame {
 
     
     private void inThresholdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inThresholdActionPerformed
-        String c = inThreshold.getText();
-        if (checkNumber(c, inThreshold) == true) {
+        
+         String c = inThreshold.getText();
+        if (Integer.parseInt(inThreshold.getText()) < 0) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (THRESHOLD), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inThreshold.setText("");
+        }
+        else if(inThreshold.getText().equals("")) {
+        jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (THRESHOLD) , ENTER AGAIN");
+        jLabel14.setVisible(true);
+        }
+        else if(checkNumber(c, inThreshold) == false) {
+        jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER IN (THRESHOLD), ENTER AGAIN");
+        jLabel14.setVisible(true);
+        inThreshold.setText("");
+        }
+        else if (checkNumber(c, inThreshold) == true) {
             int threshold = Integer.parseInt(c);
             inThreshold.setEditable(false);
             Points.colony = threshold;
@@ -1015,6 +1096,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
