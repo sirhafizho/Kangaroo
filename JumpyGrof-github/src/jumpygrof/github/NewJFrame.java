@@ -729,6 +729,11 @@ public class NewJFrame extends javax.swing.JFrame {
             jLabel14.setVisible(true);
             inConnected.setText("");
         }
+        else if(Integer.parseInt(inConnected.getText()) > Hafiz.numberofpoints){
+            jLabel14.setText("ERROR:YOU ENTERED AN INVALID POINT, ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inConnected.setText("");
+        }
         else if(checkNumber(inConnected.getText(), inConnected) == true && checkNumber(inHeight.getText(), inHeight) == true){
         if(r == 0) {
         routemem = new int[Hafiz.points.atindex(i).getnumroute()];
@@ -789,12 +794,6 @@ public class NewJFrame extends javax.swing.JFrame {
                 
         
         if( r == Hafiz.points.atindex(i).getnumroute()) {
-            
-            for(int y = 0;y<routemem.length;y++) {
-                System.out.println("THE ROUTE IS : " + routemem[y]);
-                System.out.println("The height is : " + heightmem[y]);
-        }
-        System.out.println();
             
             for(int y = 0;y<routemem.length;y++) {
                 Hafiz.points.atindex(i).addroute(new Route(Hafiz.points.atindex(routemem[y]), heightmem[y]));
@@ -867,15 +866,15 @@ public class NewJFrame extends javax.swing.JFrame {
   
         
         if(checkGender(inGender.getText(), inGender)==false) {
-            jLabel14.setText("ERROR:YOU ENTERED A NON CHARACTER Value in (GENDER), ENTER AGAIN)");
+            jLabel14.setText("ERROR:YOU ENTERED NEITHER OF WHICH,F FOR FEMALE M FOR MALE Value in (GENDER), ENTER AGAIN)");
             jLabel14.setVisible(true);
             inGender.setText("");
         }
-        else if(!inGender.getText().equals("F") || !inGender.getText().equals("f") || !inGender.getText().equals("M") || !inGender.getText().equals("m")) {
-            jLabel14.setText("ERROR:YOU ENTERED A NEITHER F OR M Value in (GENDER), ENTER AGAIN)");
-            jLabel14.setVisible(true);
-            inGender.setText("");
-        }
+//        else if(!inGender.getText().equals("F") || !inGender.getText().equals("f") || !inGender.getText().equals("M") || !inGender.getText().equals("m")) {
+//            jLabel14.setText("ERROR:YOU ENTERED A NEITHER F OR M Value in (GENDER), ENTER AGAIN)");
+//            jLabel14.setVisible(true);
+//            inGender.setText("");
+//        }
         else if (inStartPoint.getText().equals("") || inGender.getText().equals("") || inPouch.getText().equals("")) {
            
             String startpointerr = "";
