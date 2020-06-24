@@ -539,26 +539,23 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_inPathsActionPerformed
     private void inPointsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inPointsActionPerformed
         
-        
-    String y = inPoints.getText();
-    
-    integerVal = Integer.parseInt(y);
-    
-    if(integerVal < 0) {
-        jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER, ENTER AGAIN");
-        jLabel14.setVisible(true);
-        inPoints.setText("");
-    }
-    else if(inPoints.getText().equals("")) {
+    if(inPoints.getText().equals("")) {
         jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (POINT(S)) , ENTER AGAIN");
         jLabel14.setVisible(true);
         }
-    else if(checkNumber(y, inPoints) == false) {
+    else if(checkNumber(inPoints.getText(), inPoints) == false) {
         jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER, ENTER AGAIN");
         jLabel14.setVisible(true);
         inPoints.setText("");
     }
-    else if(checkNumber(y, inPoints) == true){
+    else if(Integer.parseInt(inPoints.getText()) < 0) {
+        jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER, ENTER AGAIN");
+        jLabel14.setVisible(true);
+        inPoints.setText("");
+    }       
+    else if(checkNumber(inPoints.getText(), inPoints) == true){
+        String y = inPoints.getText();
+        integerVal = Integer.parseInt(y);
         jLabel14.setVisible(false);
         x = Integer.parseInt(y);
         inPoints.setEditable(false);
@@ -575,22 +572,8 @@ public class NewJFrame extends javax.swing.JFrame {
         
         
         
-        if (Integer.parseInt(inFood.getText()) < 0) {
-            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (F00D), ENTER AGAIN");
-            jLabel14.setVisible(true);
-            inFood.setText("");
-        }
-        else if(Integer.parseInt(inCapacity.getText()) < 0){
-            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (CAPACITY), ENTER AGAIN");
-            jLabel14.setVisible(true);
-            inCapacity.setText("");
-        }
-        else if(Integer.parseInt(inPaths.getText()) < 0){
-            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (PATH CONNECTED), ENTER AGAIN");
-            jLabel14.setVisible(true);
-            inPaths.setText("");
-        }     
-        else if (inFood.getText().equals("") || inCapacity.getText().equals("") || inPaths.getText().equals("")) {
+          
+        if (inFood.getText().equals("") || inCapacity.getText().equals("") || inPaths.getText().equals("")) {
            
             String fooderr = "";
             String Capacityerr = "";
@@ -622,6 +605,21 @@ public class NewJFrame extends javax.swing.JFrame {
             jLabel14.setVisible(true);
             inPaths.setText("");
             }
+                else if (Integer.parseInt(inFood.getText()) < 0) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (F00D), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inFood.setText("");
+        }
+        else if(Integer.parseInt(inCapacity.getText()) < 0){
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (CAPACITY), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inCapacity.setText("");
+        }
+        else if(Integer.parseInt(inPaths.getText()) < 0){
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (PATH CONNECTED), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inPaths.setText("");
+        }   
         else if(index < x){
             
             if(checkNumber(inIDPoint.getText(), inIDPoint)==true && 
@@ -693,17 +691,8 @@ public class NewJFrame extends javax.swing.JFrame {
     
     private void ok2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok2MouseClicked
         
-        if (Integer.parseInt(inHeight.getText()) < 0) {
-            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (HEIGHT), ENTER AGAIN");
-            jLabel14.setVisible(true);
-            inHeight.setText("");
-        }
-        else if(Integer.parseInt(inConnected.getText()) < 0){
-            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (CONNECTED), ENTER AGAIN");
-            jLabel14.setVisible(true);
-            inConnected.setText("");
-        }
-        else if(inConnected.getText().equals("") || inHeight.getText().equals("")) {
+        
+        if(inConnected.getText().equals("") || inHeight.getText().equals("")) {
             
             String connectederr = "";
             String heighterr = "";
@@ -727,6 +716,16 @@ public class NewJFrame extends javax.swing.JFrame {
             inHeight.setText("");
         }else if(inConnected.getText().equals(Hafiz.points.atindex(i).getpointID())) {
             jLabel14.setText("ERROR:YOU CANNOT DIRECT TO THE SOURCE, ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inConnected.setText("");
+        }
+        else if (Integer.parseInt(inHeight.getText()) < 0) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (HEIGHT), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inHeight.setText("");
+        }
+        else if(Integer.parseInt(inConnected.getText()) < 0){
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (CONNECTED), ENTER AGAIN");
             jLabel14.setVisible(true);
             inConnected.setText("");
         }
@@ -835,22 +834,23 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void inKangarooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inKangarooActionPerformed
         
-        String g = inKangaroo.getText();
-        if (Integer.parseInt(inKangaroo.getText()) < 0) {
-            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (KANGAROO(S)), ENTER AGAIN");
-            jLabel14.setVisible(true);
-            inKangaroo.setText("");
-        }
-        else if(inKangaroo.getText().equals("")) {
+        
+        if(inKangaroo.getText().equals("")) {
         jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (KANGAROO(S)) , ENTER AGAIN");
         jLabel14.setVisible(true);
         }
-        else if(checkNumber(g, inKangaroo) == false) {
+        else if(checkNumber(inKangaroo.getText(), inKangaroo) == false) {
         jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER IN (KANGAROO(S)), ENTER AGAIN");
         jLabel14.setVisible(true);
         inKangaroo.setText("");
         }
-        else if(checkNumber(g, inKangaroo) == true){
+        else if (Integer.parseInt(inKangaroo.getText()) < 0) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (KANGAROO(S)), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inKangaroo.setText("");
+        }
+        else if(checkNumber(inKangaroo.getText(), inKangaroo) == true){
+            String g = inKangaroo.getText();
             jLabel14.setVisible(false);
         z = Integer.parseInt(g);
         inKangaroo.setEditable(false);
@@ -865,17 +865,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private void ok3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok3MouseClicked
         
   
-        if (Integer.parseInt(inStartPoint.getText()) < 0) {
-            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (START POINT), ENTER AGAIN");
-            jLabel14.setVisible(true);
-            inStartPoint.setText("");
-        }
-        else if (Integer.parseInt(inPouch.getText()) < 0) {
-            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (POUCH), ENTER AGAIN");
-            jLabel14.setVisible(true);
-            inPouch.setText("");
-        }
-        else if(checkGender(inGender.getText(), inGender)==false) {
+        
+        if(checkGender(inGender.getText(), inGender)==false) {
             jLabel14.setText("ERROR:YOU ENTERED A NON CHARACTER Value in (GENDER), ENTER AGAIN)");
             jLabel14.setVisible(true);
             inGender.setText("");
@@ -914,6 +905,16 @@ public class NewJFrame extends javax.swing.JFrame {
             jLabel14.setVisible(true);
             inPouch.setText("");
         }
+                else if (Integer.parseInt(inStartPoint.getText()) < 0) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (START POINT), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inStartPoint.setText("");
+        }
+        else if (Integer.parseInt(inPouch.getText()) < 0) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (POUCH), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inPouch.setText("");
+        }
         else if(index2 <= z){
             if(checkNumber(inStartPoint.getText(), inStartPoint)==true && 
                checkNumber(inPouch.getText(), inPouch)==true &&
@@ -944,22 +945,24 @@ public class NewJFrame extends javax.swing.JFrame {
     
     private void inThresholdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inThresholdActionPerformed
         
-         String c = inThreshold.getText();
-        if (Integer.parseInt(inThreshold.getText()) < 0) {
-            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (THRESHOLD), ENTER AGAIN");
-            jLabel14.setVisible(true);
-            inThreshold.setText("");
-        }
-        else if(inThreshold.getText().equals("")) {
+         
+        
+        if(inThreshold.getText().equals("")) {
         jLabel14.setText("ERROR:YOU DIDNT ENTER ANYTHING IN (THRESHOLD) , ENTER AGAIN");
         jLabel14.setVisible(true);
         }
-        else if(checkNumber(c, inThreshold) == false) {
+        else if(checkNumber(inThreshold.getText(), inThreshold) == false) {
         jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER IN (THRESHOLD), ENTER AGAIN");
         jLabel14.setVisible(true);
         inThreshold.setText("");
         }
-        else if (checkNumber(c, inThreshold) == true) {
+        else if (Integer.parseInt(inThreshold.getText()) < 0) {
+            jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (THRESHOLD), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inThreshold.setText("");
+        }
+        else if (checkNumber(inThreshold.getText(), inThreshold) == true) {
+            String c = inThreshold.getText();
             int threshold = Integer.parseInt(c);
             inThreshold.setEditable(false);
             Points.colony = threshold;
