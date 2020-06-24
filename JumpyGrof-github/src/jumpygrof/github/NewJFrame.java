@@ -952,19 +952,27 @@ public class NewJFrame extends javax.swing.JFrame {
                     && checkGender(inGender.getText(), inGender) == true) {
                 char c = inGender.getText().charAt(0);
                 char c1 = Character.toUpperCase(c);
-                Hafiz.Kangaroos.addNode(new Kangaroo(Integer.parseInt(inStartPoint.getText()), c1, Integer.parseInt(inPouch.getText())));
+                //add kangaroo
+                if (Hafiz.getPoint(Integer.parseInt(inStartPoint.getText())).isMaxkang()==true) {
+                    jLabel14.setText("ERROR: STARTING POINT ALREADY FULL, USE ANOTHER POINT, ENTER AGAIN");
+                    jLabel14.setVisible(true);
+                    inStartPoint.setText("");
+                }else {
+                    Hafiz.Kangaroos.addNode(new Kangaroo(Integer.parseInt(inStartPoint.getText()), c1, Integer.parseInt(inPouch.getText())));
 
-                inStartPoint.setText("");
-                inGender.setText("");
-                inPouch.setText("");
-                index2++;
-                if (index2 > z) {
-                    ok3.setEnabled(false);
-                    inStartPoint.setEditable(false);
-                    inGender.setEditable(false);
-                    inPouch.setEditable(false);
-                    inThreshold.setEditable(true);
+                    inStartPoint.setText("");
+                    inGender.setText("");
+                    inPouch.setText("");
+                    index2++;
+                    if (index2 > z) {
+                        ok3.setEnabled(false);
+                        inStartPoint.setEditable(false);
+                        inGender.setEditable(false);
+                        inPouch.setEditable(false);
+                        inThreshold.setEditable(true);
+                    }
                 }
+
             } else {
                 inStartPoint.setText("");
                 inGender.setText("");
