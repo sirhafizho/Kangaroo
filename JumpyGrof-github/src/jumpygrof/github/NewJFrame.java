@@ -776,7 +776,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel14.setVisible(true);
         }
         else if(checkNumber(g, inKangaroo) == false) {
-        jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER, ENTER AGAIN");
+        jLabel14.setText("ERROR:YOU ENTERED A NON INTEGER IN (KANGAROO(S)), ENTER AGAIN");
         jLabel14.setVisible(true);
         inKangaroo.setText("");
         }
