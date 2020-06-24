@@ -1,15 +1,12 @@
 package jumpygrof.github;
 
-import java.util.InputMismatchException;
-import java.util.Random;
-
 /**
  *
  * @author hello
  */
 public class Kangaroo implements Comparable<Kangaroo> {
 
-    private Character gender;
+    private final Character gender;
     private int pouchcapacity;
     private int food = 0;//food in pouch
     private int pointID;
@@ -97,10 +94,10 @@ public class Kangaroo implements Comparable<Kangaroo> {
         if (this.gender == 'M') {
 
             int tempnumroute = getPoint().getnumroute();// number of route from the point(point that current kangaroo is)
-            int foodneeded = 0;
-            int foodavailableforeating = 0;
-            int foodatnewpoint = 0;
-            LinkedList<Route> allowed = new LinkedList<Route>();
+            int foodneeded;
+            int foodavailableforeating;
+            int foodatnewpoint;
+            LinkedList<Route> allowed = new LinkedList<>();
             Route choosen = null;
 
             for (int j = 0; j < tempnumroute; j++) {
@@ -111,77 +108,75 @@ public class Kangaroo implements Comparable<Kangaroo> {
                 if (temproute.getLink().isMaxkang())//kalau dah penuh tempat tu takleh masuk
                 {
                     continue;
-                }
-                if (foodavailableforeating >= foodneeded) {
+                }else if (foodavailableforeating >= foodneeded) {
                     //manage to go without considering colony
                     if (temproute.getLink().totalKangaroo() >= Points.colony) {
                         if (foodatnewpoint - foodneeded <= 0) {
                             foodavailableforeating -= foodneeded;
                             if (foodavailableforeating >= Points.colony) {
                                 allowed.addNode(temproute);
-                            } else {
-                                continue;
                             }
                         } else {
 
                             if (this.food >= Points.colony) {
                                 allowed.addNode(temproute);
-                            } else {
-                                continue;
                             }
                         }
                     } else {
                         allowed.addNode(temproute);
                     }
-                } else {
-                    continue;
                 }
 
             }
+            System.out.println(allowed.length());
+            System.out.println("before allowed");
+            if (allowed.isEmpty() == false) {
+                for (int i = 0; i < allowed.length(); i++) {
 
-            for (int i = 0; i < allowed.length(); i++) {
-
-                if (choosen == null) {
-                    choosen = allowed.atindex(i);
-                } else {
-                    if (choosen.getLink().getfood() < allowed.atindex(i).getLink().getfood()) {
+                    if (choosen == null) {
+                        System.out.println("sec  masuk sini");
+                        System.out.println(allowed.atindex(i).getLink().getpointID());
                         choosen = allowed.atindex(i);
-                    } else if (choosen.getLink().getfood() == allowed.atindex(i).getLink().getfood()) {
-                        if (choosen.getLink().getfemale() < choosen.getLink().getmale()) {
+                    } else {
+                        if (choosen.getLink().getfood() < allowed.atindex(i).getLink().getfood()) {
                             choosen = allowed.atindex(i);
+                        } else if (choosen.getLink().getfood() == allowed.atindex(i).getLink().getfood()) {
+                            if (choosen.getLink().getfemale() < choosen.getLink().getmale()) {
+                                choosen = allowed.atindex(i);
+                            }
                         }
                     }
+
                 }
 
-            }
+                if (choosen.getLink().isMaxkang() == true) {
+                    this.pointID = choosen.getLink().getpointID();
+                    foodneeded = choosen.getWeight() + (this.food / 2); //must initialize again
+                    int foodeaten = 0;
+                    //kangaroo makan makanan
+                    while (true) {
+                        if (foodeaten != foodneeded) {
+                            if (choosen.getLink().getfood() != 0) {
+                                choosen.getLink().minusfood(1);
+                            } else {
+                                this.food--;
+                            }
+                            foodeaten++;
+                        } else {
+                            if (choosen.getLink().iscolonized()) {
+                                this.food -= choosen.getLink().totalKangaroo();
+                            }
+                            break;
+                        }
+                    }
 
-            this.pointID = choosen.getLink().getpointID();
-            foodneeded = choosen.getWeight() + (this.food / 2); //must initialize again
-            int foodeaten = 0;
-            //kangaroo makan makanan
-            while (true) {
-                if (foodeaten != foodneeded) {
-                    if (choosen.getLink().getfood() != 0) {
-                        choosen.getLink().minusfood(1);
-                    } else {
-                        this.food--;
+                    //kalau new destination became colony
+                    if (choosen.getLink().totalKangaroo() >= Points.colony && choosen.getLink().iscolonized() == false) {
+                        choosen.getLink().setcolonized(true);
+                        Points.numberofcolony++;
                     }
-                    foodeaten++;
-                } else {
-                    if (choosen.getLink().iscolonized()) {
-                        this.food -= choosen.getLink().totalKangaroo();
-                    }
-                    break;
                 }
             }
-            
-            //kalau new destination became colony
-            if (choosen.getLink().totalKangaroo() >= Points.colony && choosen.getLink().iscolonized() == false) {
-                choosen.getLink().setcolonized(true);
-                Points.numberofcolony++;
-            }
-
-            System.out.println("choosen " + choosen.toString());//ni tak perlu pun saje je letak
         }
     }
 

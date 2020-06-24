@@ -5,8 +5,6 @@ public class Route implements Comparable<Route>{
     private Points link;
     
     public Route(){
-        this.weight = 0;
-        this.link = null;
     }
     public Route(Points link, int weight){
         this.weight = weight;

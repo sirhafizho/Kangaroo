@@ -80,14 +80,12 @@ public void Visualize_Directed_Graph(LinkedList<String> DistinctNodes, LinkedLis
         Hashtable<String, MyNode> GraphNodes = new Hashtable<String, GraphVisualization.MyNode>();
         LinkedList<MyNode> SourceNode = new LinkedList<GraphVisualization.MyNode>();
         LinkedList<MyNode> DestinationNode = new LinkedList<GraphVisualization.MyNode>();
-        LinkedList<MyNode> GraphNodesOnly = new LinkedList<GraphVisualization.MyNode>();
         
         //to create graph nodes
         for(int i=0;i<DistinctNodes.size();i++){
             String nodeName = DistinctNodes.get(i);
             MyNode data = new MyNode(nodeName);
             GraphNodes.put(nodeName, data);
-            GraphNodesOnly.add(data);
         }
         
         //to convert all source and destination nodes into objects
