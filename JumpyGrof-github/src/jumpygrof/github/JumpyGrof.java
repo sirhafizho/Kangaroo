@@ -14,7 +14,7 @@ public class JumpyGrof {
         java.util.LinkedList<String> SourceVertex = new java.util.LinkedList<String>();//to form directed graph
         java.util.LinkedList<String> DestinationVertex = new java.util.LinkedList<String>();//to form directed graph
         java.util.LinkedList<Integer> EdgeHeight = new java.util.LinkedList<Integer>();//used to enter edge weight
-        
+       
         Scanner s = new Scanner(System.in);
         int n; // number of points
         int a; // pointID
