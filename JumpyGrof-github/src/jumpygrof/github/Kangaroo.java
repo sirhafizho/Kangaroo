@@ -108,7 +108,7 @@ public class Kangaroo implements Comparable<Kangaroo> {
                 if (temproute.getLink().isMaxkang())//kalau dah penuh tempat tu takleh masuk
                 {
                     continue;
-                }else if (foodavailableforeating >= foodneeded) {
+                } else if (foodavailableforeating >= foodneeded) {
                     //manage to go without considering colony
                     if (temproute.getLink().totalKangaroo() >= Points.colony) {
                         if (foodatnewpoint - foodneeded <= 0) {
@@ -128,14 +128,10 @@ public class Kangaroo implements Comparable<Kangaroo> {
                 }
 
             }
-            System.out.println(allowed.length());
-            System.out.println("before allowed");
             if (allowed.isEmpty() == false) {
                 for (int i = 0; i < allowed.length(); i++) {
 
                     if (choosen == null) {
-                        System.out.println("sec  masuk sini");
-                        System.out.println(allowed.atindex(i).getLink().getpointID());
                         choosen = allowed.atindex(i);
                     } else {
                         if (choosen.getLink().getfood() < allowed.atindex(i).getLink().getfood()) {
@@ -149,7 +145,7 @@ public class Kangaroo implements Comparable<Kangaroo> {
 
                 }
 
-                if (choosen.getLink().isMaxkang() == true) {
+                if (choosen.getLink().isMaxkang() == false) {
                     this.pointID = choosen.getLink().getpointID();
                     foodneeded = choosen.getWeight() + (this.food / 2); //must initialize again
                     int foodeaten = 0;

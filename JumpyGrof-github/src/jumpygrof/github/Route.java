@@ -1,40 +1,43 @@
 package jumpygrof.github;
 
-public class Route implements Comparable<Route>{
+public class Route implements Comparable<Route> {
+
     private int weight;//obstacles level
     private Points link;
-    
-    public Route(){
+
+    public Route() {
     }
-    public Route(Points link, int weight){
+
+    public Route(Points link, int weight) {
         this.weight = weight;
         this.link = link;
     }
-    
-    public void setLink(Points link){
+
+    public void setLink(Points link) {
         this.link = link;
     }
-    
-    public Points getLink(){
+
+    public Points getLink() {
         return this.link;
     }
-    public int getWeight(){
+
+    public int getWeight() {
         return this.weight;
     }
 
     @Override
     public String toString() {
-        return "Route " + weight + " to point " +link.getpointID() + '}';
+        return "Route " + weight + " to point " + link.getpointID() + '}';
     }
 
     @Override
     public int compareTo(Route o) {
-        if(this.weight == o.getWeight())
+        if (this.weight == o.getWeight()) {
             return 0;
-        else if(this.weight > o.getWeight())
+        } else if (this.weight > o.getWeight()) {
             return 1;
-        else
+        } else {
             return -1;
+        }
     }
-   
 }
