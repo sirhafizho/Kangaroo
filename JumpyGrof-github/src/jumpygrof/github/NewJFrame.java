@@ -782,7 +782,12 @@ public class NewJFrame extends javax.swing.JFrame {
             jLabel14.setText("ERROR:YOU ENTERED A NEGATIVE NUMBER in (CONNECTED), ENTER AGAIN");
             jLabel14.setVisible(true);
             inConnected.setText("");
-        } else if (Integer.parseInt(inConnected.getText()) == Hafiz.points.atindex(i).getpointID()) {
+        }
+        else if (Integer.parseInt(inConnected.getText()) == 0) {
+            jLabel14.setText("ERROR:YOU ENTERED INVALID ID in (CONNECTED), ENTER AGAIN");
+            jLabel14.setVisible(true);
+            inConnected.setText("");
+        }else if (Integer.parseInt(inConnected.getText()) == Hafiz.points.atindex(i).getpointID()) {
             jLabel14.setText("ERROR:YOU ENTERED THE SAME NUMBER FOR THE ID in (CONNECTED), ENTER AGAIN");
             jLabel14.setVisible(true);
             inConnected.setText("");
