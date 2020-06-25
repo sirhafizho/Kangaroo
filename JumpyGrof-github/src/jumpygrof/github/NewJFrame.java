@@ -625,7 +625,7 @@ public class NewJFrame extends javax.swing.JFrame {
             inPaths.setEditable(true);
             ok1.setEnabled(true);
             Hafiz = new Map(x);
-            jLabel17.setText("Points                - " + x);
+            jLabel17.setText("Points                 : " + x);
             inIDPoint.setText(index + 1 + "");
         }
     }//GEN-LAST:event_inPointsActionPerformed
@@ -698,7 +698,7 @@ public class NewJFrame extends javax.swing.JFrame {
                     inFood.setEditable(false);
                     inCapacity.setEditable(false);
                     inPaths.setEditable(false);
-                    jLabel18.setText("Total Capacity   - " + JumpyGrof.Hafiz.getmaxkangmap());
+                    jLabel18.setText("Total Capacity   : " + JumpyGrof.Hafiz.getmaxkangmap());
                     iterate();
 
                 } else {
@@ -891,7 +891,7 @@ public class NewJFrame extends javax.swing.JFrame {
             String g = inKangaroo.getText();
             jLabel14.setVisible(false);
             z = Integer.parseInt(g);
-            jLabel20.setText("Total Kangaroo  - " + z);
+            jLabel20.setText("Total Kangaroo  : " + z);
             inKangaroo.setEditable(false);
             inStartPoint.setEditable(true);
             inGender.setEditable(true);
@@ -1008,7 +1008,7 @@ public class NewJFrame extends javax.swing.JFrame {
             String c = inThreshold.getText();
             int threshold = Integer.parseInt(c);
             inThreshold.setEditable(false);
-            jLabel21.setText("Threshold          - " + threshold);
+            jLabel21.setText("Threshold          : " + threshold);
             Points.colony = threshold;
             output();
             //System.exit(0);
